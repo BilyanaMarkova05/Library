@@ -31,7 +31,6 @@ public class RegistrationPage extends JFrame implements ActionListener {
         this.returnButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
         setupComponents();
-
     }
 
     private void setupComponents() {
@@ -99,7 +98,12 @@ public class RegistrationPage extends JFrame implements ActionListener {
             navigateToAuthenticationPage();
         } else if (source.equals(registrationButton)) {
             authentication.registration(nameField.getText(), passwordField.getText());
-            if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
+            this.dispose();
+            if(AuthenticationImpl.getLoggedUser() == null
+                    || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){
+                JOptionPane.showMessageDialog(null, "This account already exist. Please try again.");
+            }else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
+                JOptionPane.showMessageDialog(null, "Registration successful");
                 this.bookController = new BookControllerImpl();
                 navigateToOptionPage();
             }

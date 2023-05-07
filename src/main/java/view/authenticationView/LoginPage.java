@@ -95,14 +95,19 @@ public class LoginPage extends JFrame implements ActionListener{
         Object source = e.getSource();
         if (source.equals(returnButton)){
             navigateToAuthenticationPage();
-        }else if (source.equals(loginButton)){
-            authentication.login(nameField.getText(), passwordField.getText());
         }
-        if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED){
-            bookController = new BookControllerImpl();
-            navigateToOptionPage();
-        }else {
+        if (source.equals(loginButton)) {
+            authentication.login(nameField.getText(), passwordField.getText());
             this.dispose();
+
+            if (AuthenticationImpl.getLoggedUser() == null
+                    || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
+                JOptionPane.showMessageDialog(null, "Login failed. Please try again");
+            } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
+                JOptionPane.showMessageDialog(null, "Login successful");
+                bookController = new BookControllerImpl();
+                navigateToOptionPage();
+            }
         }
     }
 

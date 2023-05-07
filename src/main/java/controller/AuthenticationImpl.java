@@ -32,7 +32,6 @@ public class AuthenticationImpl implements Authentication{
         for (int i = 0; i < userDB.getAllUsers().size(); i++) {
             if (name.equals(userDB.getAllUsers().get(i).getName())
                     && password.equals(userDB.getAllUsers().get(i).getPassword())){
-                JOptionPane.showMessageDialog(null, "This account already exist. Please try again.");
                 new RegistrationPage();
                 return;
             }
@@ -40,7 +39,6 @@ public class AuthenticationImpl implements Authentication{
         userDB.insertTable(name, password);
         loggedUser = new User(name, password);
         loggedUser.setUserStatus(UserStatus.LOGGED);
-        JOptionPane.showMessageDialog(null, "Registration successful");
     }
 
     @Override
@@ -53,13 +51,11 @@ public class AuthenticationImpl implements Authentication{
                     && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))){
                 loggedUser = userDB.getAllUsers().get(i);
                 loggedUser.setUserStatus(UserStatus.LOGGED);
-                JOptionPane.showMessageDialog(null, "Login successful");
                 isUserLogged = true;
             }
         }
 
         if(!isUserLogged){
-            JOptionPane.showMessageDialog(null, "Login failed. Please try again");
             new LoginPage();
         }
     }
@@ -70,12 +66,10 @@ public class AuthenticationImpl implements Authentication{
         if(name.equals(admin.getName()) && password.equals(admin.getPassword())){
             loggedUser = admin;
             loggedUser.setUserStatus(UserStatus.LOGGED);
-            JOptionPane.showMessageDialog(null, "Login successful");
             areAdminDataCorrect = true;
         }
 
         if(!areAdminDataCorrect){
-            JOptionPane.showMessageDialog(null, "Login failed. Please try again");
             new AdminPage();
         }
     }

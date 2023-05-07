@@ -98,7 +98,10 @@ public class AdminPage extends JFrame implements ActionListener {
             authentication.loginAsAdmin(nameField.getText(), passwordField.getText());
         }
         if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED){
+            JOptionPane.showMessageDialog(null, "Login successful");
             navigateToAdminOptionPage();
+        }else if (AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){
+            JOptionPane.showMessageDialog(null, "Login failed. Please try again");
         }
     }
 
