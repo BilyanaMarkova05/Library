@@ -17,6 +17,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation 'org.postgresql:postgresql:42.3.4'
     implementation "gradle.plugin.com.chrisgahlert:gradle-guice-plugin:+"
+    implementation 'org.mindrot:jbcrypt:0.4'
 }
 
 test {

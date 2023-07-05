@@ -1,11 +1,11 @@
 package controller;
 
 import model.userModel.*;
+import org.mindrot.jbcrypt.BCrypt;
 import view.authenticationView.AdminPage;
 import view.authenticationView.LoginPage;
 import view.authenticationView.RegistrationPage;
 
-import javax.swing.*;
 import java.util.List;
 
 public class AuthenticationImpl implements Authentication{
@@ -44,17 +44,14 @@ public class AuthenticationImpl implements Authentication{
     @Override
     public void login(String name, String password) {
         boolean isUserLogged = false;
-        for (int i = 0; i < userDB.getAllUsers().size(); i++) {
-            if (name.equals(userDB.getAllUsers().get(i).getName())
-                    && password.equals(userDB.getAllUsers().get(i).getPassword())
-                    && userDB.getAllUsers().get(i).getUserStatus() == UserStatus.LOGOUT
-                    && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))){
-                loggedUser = userDB.getAllUsers().get(i);
+        for (User user : userDB.getAllUsers()) {
+            boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
+            if (name.equals(user.getName()) && passwordMatch) {
+                loggedUser = user;
                 loggedUser.setUserStatus(UserStatus.LOGGED);
                 isUserLogged = true;
             }
         }
-
         if(!isUserLogged){
             new LoginPage();
         }

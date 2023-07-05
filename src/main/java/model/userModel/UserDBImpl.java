@@ -1,7 +1,7 @@
 package model.userModel;
 
 import model.ConnectionDB;
-
+import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,10 @@ public class UserDBImpl implements UserDB{
     }
 
     public void insertTable(String username, String password) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         try {
             String sql = "INSERT INTO users (username, password) " +
-                    "VALUES ('" + username + "'" + ", " + "'" + password + "')";
+                    "VALUES ('" + username + "'" + ", " + "'" + hashedPassword + "')";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
