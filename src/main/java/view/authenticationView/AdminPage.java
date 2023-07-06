@@ -16,7 +16,7 @@ public class AdminPage extends JFrame implements ActionListener {
     private final JLabel nameLabel;
     private final JTextField nameField;
     private final JLabel passwordLabel;
-    private final JTextField passwordField;
+    private final JPasswordField passwordField;
     private final JButton loginButton;
     private final Authentication authentication;
 
@@ -25,7 +25,7 @@ public class AdminPage extends JFrame implements ActionListener {
         this.nameLabel = new JLabel();
         this.nameField = new JTextField();
         this.passwordLabel = new JLabel();
-        this.passwordField = new JTextField();
+        this.passwordField = new JPasswordField();
         this.loginButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
         setupComponents();
@@ -95,7 +95,8 @@ public class AdminPage extends JFrame implements ActionListener {
         if (source.equals(returnButton)){
             navigateToAuthenticationPage();
         }else if (source.equals(loginButton)){
-            authentication.loginAsAdmin(nameField.getText(), passwordField.getText());
+            String password = new String(passwordField.getPassword());
+            authentication.loginAsAdmin(nameField.getText(), password);
         }
         if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED){
             JOptionPane.showMessageDialog(null, "Login successful");

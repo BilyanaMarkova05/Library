@@ -29,9 +29,9 @@ public class AuthenticationImpl implements Authentication{
 
     @Override
     public void registration(String name, String password) {
-        for (int i = 0; i < userDB.getAllUsers().size(); i++) {
-            if (name.equals(userDB.getAllUsers().get(i).getName())
-                    && password.equals(userDB.getAllUsers().get(i).getPassword())){
+        for (User user : userDB.getAllUsers()) {
+            boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
+            if (name.equals(user.getName()) && passwordMatch){
                 new RegistrationPage();
                 return;
             }
@@ -46,7 +46,8 @@ public class AuthenticationImpl implements Authentication{
         boolean isUserLogged = false;
         for (User user : userDB.getAllUsers()) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
-            if (name.equals(user.getName()) && passwordMatch) {
+            if (name.equals(user.getName()) && passwordMatch
+                    && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))) {
                 loggedUser = user;
                 loggedUser.setUserStatus(UserStatus.LOGGED);
                 isUserLogged = true;

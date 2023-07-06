@@ -16,7 +16,7 @@ public class LoginPage extends JFrame implements ActionListener{
     private final JLabel nameLabel;
     private final JTextField nameField;
     private final JLabel passwordLabel;
-    private final JTextField passwordField;
+    private final JPasswordField passwordField;
     private final JButton loginButton;
     private final JButton returnButton;
     private final Authentication authentication;
@@ -26,7 +26,7 @@ public class LoginPage extends JFrame implements ActionListener{
         this.nameLabel = new JLabel();
         this.nameField = new JTextField();
         this.passwordLabel = new JLabel();
-        this.passwordField = new JTextField();
+        this.passwordField = new JPasswordField();
         this.loginButton = new JButton();
         this.returnButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
@@ -97,7 +97,8 @@ public class LoginPage extends JFrame implements ActionListener{
             navigateToAuthenticationPage();
         }
         if (source.equals(loginButton)) {
-            authentication.login(nameField.getText(), passwordField.getText());
+            String password = new String(passwordField.getPassword());
+            authentication.login(nameField.getText(), password);
             this.dispose();
 
             if (AuthenticationImpl.getLoggedUser() == null
