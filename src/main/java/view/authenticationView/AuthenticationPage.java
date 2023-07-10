@@ -9,6 +9,7 @@ public class AuthenticationPage extends JFrame implements ActionListener {
     private static AuthenticationPage instance;
     private final JButton registrationButton;
     private final JButton loginButton;
+    private final JButton librarianButton;
     private final JButton adminButton;
 
     public static AuthenticationPage getInstance() {
@@ -20,6 +21,7 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         this.registrationButton = new JButton();
         this.loginButton = new JButton();
         this.adminButton = new JButton();
+        this.librarianButton = new JButton();
         setupComponents();
     }
 
@@ -27,6 +29,7 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         setupAdminButton();
         setupRegistrationButton();
         setupLoginButton();
+        setupLibrarianButton();
         setupFrame();
     }
 
@@ -34,6 +37,7 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         this.add(registrationButton);
         this.add(loginButton);
         this.add(adminButton);
+        this.add(librarianButton);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Authentication");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,16 +54,23 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         adminButton.addActionListener(this);
     }
 
+    private void setupLibrarianButton() {
+        librarianButton.setText("Librarian");
+        librarianButton.setBounds(100, 270, 200, 40);
+        librarianButton.setFocusable(false);
+        librarianButton.addActionListener(this);
+    }
+
     private void setupLoginButton() {
         loginButton.setText("Login");
-        loginButton.setBounds(100, 270, 200, 40);
+        loginButton.setBounds(100, 220, 200, 40);
         loginButton.setFocusable(false);
         loginButton.addActionListener(this);
     }
 
     private void setupRegistrationButton() {
         registrationButton.setText("Sing in");
-        registrationButton.setBounds(100, 220, 200, 40);
+        registrationButton.setBounds(100, 170, 200, 40);
         registrationButton.setFocusable(false);
         registrationButton.addActionListener(this);
     }
@@ -71,6 +82,8 @@ public class AuthenticationPage extends JFrame implements ActionListener {
             navigateToRegistrationPage();
         }else if (source.equals(loginButton)){
             navigateToLoginPage();
+        }else if(source.equals(librarianButton)){
+            navigateToLoginLibrarianPage();
         }else if (source.equals(adminButton)){
             navigateToAdminPage();
         }
@@ -89,5 +102,10 @@ public class AuthenticationPage extends JFrame implements ActionListener {
     private void navigateToRegistrationPage() {
         this.dispose();
         new RegistrationPage().setVisible(true);
+    }
+
+    private void navigateToLoginLibrarianPage() {
+        this.dispose();
+        new LoginLibrarianPage();
     }
 }

@@ -2,9 +2,7 @@ package controller;
 
 import model.userModel.*;
 import org.mindrot.jbcrypt.BCrypt;
-import view.authenticationView.AdminPage;
-import view.authenticationView.LoginPage;
-import view.authenticationView.RegistrationPage;
+import view.authenticationView.*;
 
 import java.util.List;
 
@@ -36,9 +34,21 @@ public class AuthenticationImpl implements Authentication{
                 return;
             }
         }
-        userDB.insertTable(name, password);
+        userDB.insertTableUsers(name, password);
         loggedUser = new User(name, password);
         loggedUser.setUserStatus(UserStatus.LOGGED);
+    }
+
+    @Override
+    public void registerLibrarian(String name, String password) {
+        for (User user : userDB.getAllLibrarians()) {
+            boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
+            if (name.equals(user.getName()) && passwordMatch){
+                new RegistrationLibrarianPage();
+                return;
+            }
+        }
+        userDB.insertTableLibrarians(name, password);
     }
 
     @Override
@@ -55,6 +65,23 @@ public class AuthenticationImpl implements Authentication{
         }
         if(!isUserLogged){
             new LoginPage();
+        }
+    }
+
+    @Override
+    public void loginAsLibrarian(String name, String password) {
+        boolean isUserLogged = false;
+        for (User user : userDB.getAllLibrarians()) {
+            boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
+            if (name.equals(user.getName()) && passwordMatch
+                    && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))) {
+                loggedUser = user;
+                loggedUser.setUserStatus(UserStatus.LOGGED);
+                isUserLogged = true;
+            }
+        }
+        if(!isUserLogged){
+            new LoginLibrarianPage();
         }
     }
 

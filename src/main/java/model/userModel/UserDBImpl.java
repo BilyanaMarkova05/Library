@@ -17,11 +17,23 @@ public class UserDBImpl implements UserDB{
         }
     }
 
-    public void insertTable(String username, String password) {
+    public void insertTableUsers(String username, String password) {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         try {
             String sql = "INSERT INTO users (username, password) " +
                     "VALUES ('" + username + "'" + ", " + "'" + hashedPassword + "')";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void insertTableLibrarians(String name, String password) {
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        try {
+            String sql = "INSERT INTO librarians (name, password) " +
+                    "VALUES ('" + name + "'" + ", " + "'" + hashedPassword + "')";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,6 +59,28 @@ public class UserDBImpl implements UserDB{
             e.printStackTrace();
         }
         return allUsers;
+    }
+
+    @Override
+    public List<User> getAllLibrarians() {
+        List<User> allLibrarians = new ArrayList<>();
+        Connection con;
+        PreparedStatement p ;
+        ResultSet rs ;
+        con = ConnectionDB.connect();
+        try {
+            String sql = "SELECT * FROM librarians";
+            p = con.prepareStatement(sql);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String password= rs.getString("password");
+                allLibrarians.add(new User(name, password));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allLibrarians;
     }
 
     public void removeUserProfile(String username){

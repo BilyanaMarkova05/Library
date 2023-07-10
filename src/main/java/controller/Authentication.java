@@ -8,7 +8,11 @@ public interface Authentication {
 
     void registration(String name, String password);
 
+    void registerLibrarian(String name, String password);
+
     void login(String name, String password);
+
+    void loginAsLibrarian(String name, String password);
 
     void loginAsAdmin(String name, String password);
 
