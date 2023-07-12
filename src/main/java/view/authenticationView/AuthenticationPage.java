@@ -6,106 +6,106 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AuthenticationPage extends JFrame implements ActionListener {
-    private static AuthenticationPage instance;
-    private final JButton registrationButton;
-    private final JButton loginButton;
-    private final JButton librarianButton;
-    private final JButton adminButton;
 
-    public static AuthenticationPage getInstance() {
-        if (instance == null) instance = new AuthenticationPage();
-        return instance;
+    private final JLabel nameLabel;
+    private final JTextField nameField;
+    private final JLabel passwordLabel;
+    private final JPasswordField passwordField;
+    private final JButton authenticationButton;
+    private final JButton returnButton;
+
+
+    public AuthenticationPage(String title, String buttonName) {
+        this.nameLabel = new JLabel();
+        this.nameField = new JTextField();
+        this.passwordLabel = new JLabel();
+        this.passwordField = new JPasswordField();
+        this.authenticationButton = new JButton();
+        this.returnButton = new JButton();
+        setupComponents(title, buttonName);
     }
 
-    public AuthenticationPage(){
-        this.registrationButton = new JButton();
-        this.loginButton = new JButton();
-        this.adminButton = new JButton();
-        this.librarianButton = new JButton();
-        setupComponents();
+    public JButton getReturnButton() {
+        return returnButton;
     }
 
-    private void setupComponents() {
-        setupAdminButton();
-        setupRegistrationButton();
-        setupLoginButton();
-        setupLibrarianButton();
-        setupFrame();
+    public JTextField getNameField() {
+        return nameField;
     }
 
-    private void setupFrame() {
-        this.add(registrationButton);
-        this.add(loginButton);
-        this.add(adminButton);
-        this.add(librarianButton);
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public JButton getAuthenticationButton() {
+        return authenticationButton;
+    }
+
+    public void navigateToPage(JFrame jFrame){
+        this.dispose();
+        jFrame.setVisible(true);
+    }
+
+    private void setupComponents(String title, String buttonName) {
+        setupNameLabel();
+        setupNameField();
+        setupPasswordLabel();
+        setupPasswordField();
+        setupAuthenticationButton(buttonName);
+        setupReturnButton();
+        setupFrame(title);
+    }
+
+    private void setupFrame(String title) {
+        this.add(nameLabel);
+        this.add(nameField);
+        this.add(passwordLabel);
+        this.add(passwordField);
+        this.add(authenticationButton);
+        this.add(returnButton);
         this.getContentPane().setBackground(Color.WHITE);
-        this.setTitle("Authentication");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle(title);
         this.setBounds(550, 150, 420, 630);
         this.setResizable(false);
         this.setLayout(null);
         this.setVisible(true);
+
     }
 
-    private void setupAdminButton() {
-        adminButton.setText("Admin");
-        adminButton.setBounds(100, 320, 200, 40);
-        adminButton.setFocusable(false);
-        adminButton.addActionListener(this);
+    private void setupReturnButton() {
+        returnButton.setText("return");
+        returnButton.setBounds(10, 20, 90, 20);
+        returnButton.setFocusable(false);
+        returnButton.addActionListener(this);
     }
 
-    private void setupLibrarianButton() {
-        librarianButton.setText("Librarian");
-        librarianButton.setBounds(100, 270, 200, 40);
-        librarianButton.setFocusable(false);
-        librarianButton.addActionListener(this);
+    private void setupAuthenticationButton(String buttonName) {
+        authenticationButton.setText(buttonName);
+        authenticationButton.setBounds(100, 300, 200, 30);
+        authenticationButton.setFocusable(false);
+        authenticationButton.addActionListener(this);
     }
 
-    private void setupLoginButton() {
-        loginButton.setText("Login");
-        loginButton.setBounds(100, 220, 200, 40);
-        loginButton.setFocusable(false);
-        loginButton.addActionListener(this);
+    private void setupPasswordField() {
+        passwordField.setBounds(160, 240, 150, 30);
     }
 
-    private void setupRegistrationButton() {
-        registrationButton.setText("Sing in");
-        registrationButton.setBounds(100, 170, 200, 40);
-        registrationButton.setFocusable(false);
-        registrationButton.addActionListener(this);
+    private void setupPasswordLabel() {
+        passwordLabel.setText("Password: ");
+        passwordLabel.setBounds(90, 240, 80, 40);
+    }
+
+    private void setupNameField() {
+        nameField.setBounds(160, 190, 150, 30);
+    }
+
+    private void setupNameLabel() {
+        nameLabel.setText("Name: ");
+        nameLabel.setBounds(90, 190, 80, 40);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        if (source.equals(registrationButton)) {
-            navigateToRegistrationPage();
-        }else if (source.equals(loginButton)){
-            navigateToLoginPage();
-        }else if(source.equals(librarianButton)){
-            navigateToLoginLibrarianPage();
-        }else if (source.equals(adminButton)){
-            navigateToAdminPage();
-        }
-    }
 
-    private void navigateToAdminPage() {
-        this.dispose();
-        new AdminPage();
-    }
-
-    private void navigateToLoginPage() {
-        this.dispose();
-        new LoginPage();
-    }
-
-    private void navigateToRegistrationPage() {
-        this.dispose();
-        new RegistrationPage().setVisible(true);
-    }
-
-    private void navigateToLoginLibrarianPage() {
-        this.dispose();
-        new LoginLibrarianPage();
     }
 }

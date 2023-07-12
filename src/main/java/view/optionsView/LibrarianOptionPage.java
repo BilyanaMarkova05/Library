@@ -4,7 +4,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.bookModel.Book;
-import view.authenticationView.AuthenticationPage;
+import view.authenticationView.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -156,6 +156,6 @@ public class LibrarianOptionPage extends JFrame implements ActionListener {
 
     private void navigateToAuthenticationPage() {
         this.dispose();
-        AuthenticationPage.getInstance().setVisible(true);
+        HomePage.getInstance().setVisible(true);
     }
 }

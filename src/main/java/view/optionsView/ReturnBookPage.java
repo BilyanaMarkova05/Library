@@ -4,7 +4,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.userModel.User;
-import view.authenticationView.AuthenticationPage;
+import view.authenticationView.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReturnPage extends JFrame implements ActionListener {
+public class ReturnBookPage extends JFrame implements ActionListener {
     private final List<JLabel> bookedBooks;
     private final JTextField bookNameField;
     private final JLabel bookNameLabel;
@@ -24,7 +24,7 @@ public class ReturnPage extends JFrame implements ActionListener {
     private final Authentication authentication;
     private final JButton deleteProfileButton;
 
-    public ReturnPage(BookController bookController){
+    public ReturnBookPage(BookController bookController){
         this.bookNameLabel = new JLabel();
         this.bookedBooks = new ArrayList<>();
         this.bookNameField = new JTextField();
@@ -124,7 +124,7 @@ public class ReturnPage extends JFrame implements ActionListener {
         } else if (source.equals(returnBookButton)){
             bookController.returnBook(bookNameField.getText());
             this.dispose();
-            new ReturnPage(bookController);
+            new ReturnBookPage(bookController);
         }else if (source.equals(deleteProfileButton)){
             if (doesUserHaveBooks()){
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
@@ -157,6 +157,6 @@ public class ReturnPage extends JFrame implements ActionListener {
 
     private void navigateToAuthenticationPage() {
         this.dispose();
-        AuthenticationPage.getInstance().setVisible(true);
+        HomePage.getInstance().setVisible(true);
     }
 }

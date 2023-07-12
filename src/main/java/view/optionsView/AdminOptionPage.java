@@ -3,14 +3,13 @@ package view.optionsView;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
-import view.authenticationView.AuthenticationPage;
+import view.authenticationView.HomePage;
 import view.authenticationView.RegistrationLibrarianPage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 public class AdminOptionPage extends JFrame implements ActionListener {
     private final JButton logoutButton;
@@ -96,7 +95,7 @@ public class AdminOptionPage extends JFrame implements ActionListener {
 
     private void navigateToRegistrationLibrarianPage() {
         this.dispose();
-        new RegistrationLibrarianPage();
+        new RegistrationLibrarianPage("Registration", "Sign in");
     }
 
     private void navigateToUserPage() {
@@ -106,6 +105,6 @@ public class AdminOptionPage extends JFrame implements ActionListener {
 
     private void navigateToAuthenticationPage() {
         this.dispose();
-        AuthenticationPage.getInstance().setVisible(true);
+        HomePage.getInstance().setVisible(true);
     }
 }

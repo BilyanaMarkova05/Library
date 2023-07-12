@@ -1,14 +1,10 @@
 
-import model.ConnectionDB;
-import view.authenticationView.AuthenticationPage;
-
-import java.sql.SQLException;
-import java.sql.Statement;
+import view.authenticationView.HomePage;
 
 public class Main {
 
     public static void main(String[] args) {
-        AuthenticationPage.getInstance();
+        HomePage.getInstance();
 
 //        try {
 //            Statement statement = ConnectionDB.connect().createStatement();

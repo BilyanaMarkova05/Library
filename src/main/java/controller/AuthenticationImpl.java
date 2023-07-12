@@ -3,6 +3,7 @@ package controller;
 import model.userModel.*;
 import org.mindrot.jbcrypt.BCrypt;
 import view.authenticationView.*;
+import view.optionsView.AdminOptionPage;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class AuthenticationImpl implements Authentication{
         for (User user : userDB.getAllUsers()) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
-                new RegistrationPage();
+                new RegistrationUserPage();
                 return;
             }
         }
@@ -44,11 +45,12 @@ public class AuthenticationImpl implements Authentication{
         for (User user : userDB.getAllLibrarians()) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
-                new RegistrationLibrarianPage();
+                new RegistrationLibrarianPage("Registration", "Sign in");
                 return;
             }
         }
         userDB.insertTableLibrarians(name, password);
+        new AdminOptionPage(new BookControllerImpl());
     }
 
     @Override

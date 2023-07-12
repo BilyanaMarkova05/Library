@@ -10,30 +10,28 @@ import view.optionsView.UserOptionPage;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class LoginPage extends AuthenticationPage{
+public class RegistrationUserPage extends AuthenticationPage {
     private final Authentication authentication;
 
-    public LoginPage() {
-        super("Login", "Login");
+    public RegistrationUserPage() {
+        super("Registration", "Sign in");
         this.authentication = AuthenticationImpl.getInstance();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source.equals(this.getReturnButton())){
+        if (source.equals(this.getReturnButton())) {
             this.navigateToPage(HomePage.getInstance());
-        }
-        if (source.equals(this.getAuthenticationButton())) {
+        } else if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
-            authentication.login(this.getNameField().getText(), password);
+            authentication.registration(this.getNameField().getText(), password);
             this.dispose();
-
-            if (AuthenticationImpl.getLoggedUser() == null
-                    || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
-                JOptionPane.showMessageDialog(null, "Login failed. Please try again");
-            } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
-                JOptionPane.showMessageDialog(null, "Login successful");
+            if(AuthenticationImpl.getLoggedUser() == null
+                    || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){
+                JOptionPane.showMessageDialog(null, "This account already exist. Please try again.");
+            }else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
+                JOptionPane.showMessageDialog(null, "Registration successful");
                 BookController bookController = new BookControllerImpl();
                 this.navigateToPage(new UserOptionPage(bookController));
             }

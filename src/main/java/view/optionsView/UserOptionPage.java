@@ -6,7 +6,7 @@ import controller.BookController;
 import model.bookModel.Book;
 
 import model.userModel.User;
-import view.authenticationView.AuthenticationPage;
+import view.authenticationView.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -172,11 +172,11 @@ public class UserOptionPage extends JFrame implements ActionListener {
 
     private void navigateToAuthenticationPage() {
         this.dispose();
-        AuthenticationPage.getInstance().setVisible(true);
+        HomePage.getInstance().setVisible(true);
     }
 
     private void navigateToReturnPage() {
         this.dispose();
-        new ReturnPage(bookController).setVisible(true);
+        new ReturnBookPage(bookController).setVisible(true);
     }
 }
