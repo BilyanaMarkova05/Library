@@ -16,11 +16,13 @@ public class BookControllerImpl implements BookController{
     private final BookDB bookDB;
     private final User loggedUser;
     private final UserDB userDB;
+    private final Authentication authentication;
 
     public BookControllerImpl() {
         this.bookDB = new BookDBImpl();
         this.loggedUser = AuthenticationImpl.getLoggedUser();
         this.userDB = new UserDBImpl();
+        this.authentication = AuthenticationImpl.getInstance();
     }
 
     public void rentBook(String bookName) {
@@ -97,14 +99,16 @@ public class BookControllerImpl implements BookController{
     }
 
     @Override
-    public void deleteFromBookedBooks(String userName) {
-        for (User user : userDB.getAllUsers()) {
-            if (userName.equals(user.getName())){
-                for (String bookName : bookDB.getBookedBooksFromUser(user)) {
-                    bookDB.updateBookStatus(bookName, "FREE");
+    public boolean doesUserHaveBooks(String username) {
+        boolean doesUserHaveBooks = false;
+        for (User user :
+                authentication.getAllUsers()) {
+            if (user.getName().equals(username)) {
+                if (!(getBookedBooksFromUser(user).isEmpty())) {
+                    doesUserHaveBooks = true;
                 }
             }
         }
-        bookDB.deleteFromBookedBooks(userName);
+        return doesUserHaveBooks;
     }
 }

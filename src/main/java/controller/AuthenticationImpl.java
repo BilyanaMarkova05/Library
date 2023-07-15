@@ -113,8 +113,13 @@ public class AuthenticationImpl implements Authentication{
     }
 
     @Override
-    public void removeUserProfile(String username) {
-        userDB.removeUserProfile(username);
+    public List<User> getAllLibrarians() {
+        return userDB.getAllLibrarians();
+    }
+
+    @Override
+    public void removeProfile(String username, String tableName) {
+        userDB.removeUserProfile(username, tableName);
     }
 
     public static User getLoggedUser() {

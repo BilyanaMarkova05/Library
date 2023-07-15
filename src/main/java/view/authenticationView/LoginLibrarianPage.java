@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 
 public class LoginLibrarianPage extends AuthenticationPage{
     private final Authentication authentication;
-    private BookController bookController;
 
     public LoginLibrarianPage() {
         super("Login", "Login");
@@ -35,7 +34,7 @@ public class LoginLibrarianPage extends AuthenticationPage{
                 JOptionPane.showMessageDialog(null, "Login failed. Please try again");
             } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
                 JOptionPane.showMessageDialog(null, "Login successful");
-                bookController = new BookControllerImpl();
+                BookController bookController = new BookControllerImpl();
                 this.navigateToPage(new LibrarianOptionPage(bookController));
             }
         }

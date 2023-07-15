@@ -20,6 +20,9 @@ public interface Authentication {
 
     List<User> getAllUsers();
 
-    void removeUserProfile(String username);
+    List<User> getAllLibrarians();
+
+    void removeProfile(String username, String tableName);
+
 
 }

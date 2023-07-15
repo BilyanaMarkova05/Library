@@ -83,10 +83,10 @@ public class UserDBImpl implements UserDB{
         return allLibrarians;
     }
 
-    public void removeUserProfile(String username){
+    public void removeUserProfile(String username, String tableName){
         try {
-            String sql = "DELETE FROM users " +
-                    "WHERE userName = '" + username + "'";
+            String sql = "DELETE FROM "+ tableName +
+                    " WHERE username = '" + username + "'";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();

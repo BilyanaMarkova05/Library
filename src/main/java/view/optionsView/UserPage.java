@@ -17,28 +17,33 @@ public class UserPage extends JFrame implements ActionListener {
     private final JButton returnButton;
     private final JButton logoutButton;
     private final List<JLabel> users;
+    private final List<JLabel> librarians;
     private final JLabel usernameLabel;
     private final JTextField usernameField;
     private final JButton removeUserButton;
     private final Authentication authentication;
-    private int y;
+    private int yUsers;
+    private int yLibrarians;
     private final BookController bookController;
 
     public UserPage(BookController bookController){
         this.returnButton = new JButton();
         this.logoutButton = new JButton();
         this.users = new ArrayList<>();
+        this.librarians = new ArrayList<>();
         this.usernameLabel = new JLabel();
         this.usernameField = new JTextField();
         this.removeUserButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
-        this.y = 40;
+        this.yUsers = 60;
+        this.yLibrarians = 60;
         this.bookController = bookController;
         setupComponents();
     }
 
     private void setupComponents() {
         setupUsers();
+        setupLibrarians();
         setupReturnButton();
         setupLogoutButton();
         setupUsernameLabel();
@@ -63,18 +68,18 @@ public class UserPage extends JFrame implements ActionListener {
 
     private void setupRemoveUserButton() {
         removeUserButton.setText("Remove user");
-        removeUserButton.setBounds(150, y+60, 130, 20);
+        removeUserButton.setBounds(60, yUsers +60, 130, 20);
         removeUserButton.setFocusable(false);
         removeUserButton.addActionListener(this);
     }
 
     private void setupUsernameField() {
-        usernameField.setBounds(150, y+25, 130, 20);
+        usernameField.setBounds(90, yUsers +25, 90, 20);
     }
 
     private void setupUsernameLabel() {
         usernameLabel.setText("Username: ");
-        usernameLabel.setBounds(80, y+15, 80, 40);
+        usernameLabel.setBounds(20, yUsers +15, 80, 40);
     }
 
     private void setupLogoutButton() {
@@ -96,9 +101,20 @@ public class UserPage extends JFrame implements ActionListener {
         for (int i = 0; i < allUsers.size(); i++) {
             this.users.add(new JLabel());
             this.users.get(i).setText(allUsers.get(i).getName());
-            this.users.get(i).setBounds(180, y, 190, 60);
+            this.users.get(i).setBounds(120, yUsers, 190, 60);
             this.add(this.users.get(i));
-            y+= 30;
+            yUsers += 30;
+        }
+    }
+
+    private void setupLibrarians() {
+        List<User> allLibrarians = authentication.getAllLibrarians();
+        for (int i = 0; i < allLibrarians.size(); i++) {
+            this.librarians.add(new JLabel());
+            this.librarians.get(i).setText(allLibrarians.get(i).getName());
+            this.librarians.get(i).setBounds(280, yLibrarians, 190, 60);
+            this.add(this.librarians.get(i));
+            yLibrarians += 30;
         }
     }
 
@@ -109,33 +125,20 @@ public class UserPage extends JFrame implements ActionListener {
             navigateToAdminOptionPage();
         }else if (source.equals(logoutButton)){
             authentication.logout();
-            navigateToAuthenticationPage();
+            navigateToHomePage();
         } else if (source.equals(removeUserButton)){
-            if (doesUserHaveBooks()){
+            if (bookController.doesUserHaveBooks(usernameField.getText())){
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
-                authentication.removeUserProfile(usernameField.getText());
+                authentication.removeProfile(usernameField.getText(), "users");
             }
             this.dispose();
             new UserPage(bookController);
         }
     }
 
-    private boolean doesUserHaveBooks(){
-        boolean doesUserHaveBooks = false;
-        for (User user:
-             authentication.getAllUsers()) {
-            if (user.getName().equals(usernameField.getText())){
-                if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
-                    doesUserHaveBooks = true;
-                }
-            }
-        }
-        return doesUserHaveBooks;
-    }
-
-    private void navigateToAuthenticationPage() {
+    private void navigateToHomePage() {
         this.dispose();
         HomePage.getInstance().setVisible(true);
     }

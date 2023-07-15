@@ -20,7 +20,5 @@ public interface BookDB {
 
     void deleteFromBookedBooks(String userName, String bookName);
 
-    void deleteFromBookedBooks(String userName);
-
     void removeBook(String bookName);
 }

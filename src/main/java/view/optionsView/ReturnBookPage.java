@@ -3,7 +3,6 @@ package view.optionsView;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
-import model.userModel.User;
 import view.authenticationView.HomePage;
 
 import javax.swing.*;
@@ -126,28 +125,15 @@ public class ReturnBookPage extends JFrame implements ActionListener {
             this.dispose();
             new ReturnBookPage(bookController);
         }else if (source.equals(deleteProfileButton)){
-            if (doesUserHaveBooks()){
+            if (bookController.doesUserHaveBooks(AuthenticationImpl.getLoggedUser().getName())){
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
-                authentication.removeUserProfile(AuthenticationImpl.getLoggedUser().getName());
+                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
                 this.dispose();
                 navigateToAuthenticationPage();
             }
         }
-    }
-
-    private boolean doesUserHaveBooks(){
-        boolean doesUserHaveBooks = false;
-        for (User user:
-                authentication.getAllUsers()) {
-            if (user.getName().equals(AuthenticationImpl.getLoggedUser().getName())){
-                if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
-                    doesUserHaveBooks = true;
-                }
-            }
-        }
-        return doesUserHaveBooks;
     }
 
     private void navigateToOptionPage() {

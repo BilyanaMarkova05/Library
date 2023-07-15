@@ -23,5 +23,5 @@ public interface BookController {
 
     List<String> getBookedBooks();
 
-    void deleteFromBookedBooks(String userName);
+    boolean doesUserHaveBooks(String username);
 }

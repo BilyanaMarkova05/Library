@@ -146,7 +146,7 @@ public class UserOptionPage extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
-                authentication.removeUserProfile(AuthenticationImpl.getLoggedUser().getName());
+                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
                 navigateToAuthenticationPage();
             }
         }

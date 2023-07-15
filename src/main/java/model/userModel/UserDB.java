@@ -12,5 +12,5 @@ public interface UserDB {
 
     List<User> getAllLibrarians();
 
-    void removeUserProfile(String username);
+    void removeUserProfile(String username, String tableName);
 }

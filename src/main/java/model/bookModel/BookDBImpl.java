@@ -130,16 +130,6 @@ public class BookDBImpl implements BookDB{
         }
     }
 
-    @Override
-    public void deleteFromBookedBooks(String userName) {
-        try {
-            String sql = "DELETE FROM bookedBooks " +
-                    "WHERE userName = '" + userName + "'";
-            statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void removeBook(String bookName) {
