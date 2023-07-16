@@ -102,7 +102,7 @@ public class BookControllerImpl implements BookController{
     public boolean doesUserHaveBooks(String username) {
         boolean doesUserHaveBooks = false;
         for (User user :
-                authentication.getAllUsers()) {
+                authentication.getAllUsers("users")) {
             if (user.getName().equals(username)) {
                 if (!(getBookedBooksFromUser(user).isEmpty())) {
                     doesUserHaveBooks = true;

@@ -21,6 +21,9 @@ public class UserPage extends JFrame implements ActionListener {
     private final JLabel usernameLabel;
     private final JTextField usernameField;
     private final JButton removeUserButton;
+    private final JLabel librarianNameLabel;
+    private final JTextField librarianNameField;
+    private final JButton removeLibrarianButton;
     private final Authentication authentication;
     private int yUsers;
     private int yLibrarians;
@@ -34,6 +37,9 @@ public class UserPage extends JFrame implements ActionListener {
         this.usernameLabel = new JLabel();
         this.usernameField = new JTextField();
         this.removeUserButton = new JButton();
+        this.librarianNameLabel = new JLabel();
+        this.librarianNameField = new JTextField();
+        this.removeLibrarianButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
         this.yUsers = 60;
         this.yLibrarians = 60;
@@ -49,6 +55,9 @@ public class UserPage extends JFrame implements ActionListener {
         setupUsernameLabel();
         setupUsernameField();
         setupRemoveUserButton();
+        setupLibrarianNameLabel();
+        setupLibrarianNameField();
+        setupRemoveLibrarianButton();
         setupFrame();
     }
 
@@ -58,12 +67,31 @@ public class UserPage extends JFrame implements ActionListener {
         this.add(usernameLabel);
         this.add(usernameField);
         this.add(removeUserButton);
+        this.add(librarianNameLabel);
+        this.add(librarianNameField);
+        this.add(removeLibrarianButton);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Users");
         this.setBounds(550, 150, 420, 630);
         this.setResizable(false);
         this.setLayout(null);
         this.setVisible(true);
+    }
+
+    private void setupRemoveLibrarianButton() {
+        removeLibrarianButton.setText("Remove librarian");
+        removeLibrarianButton.setBounds(260, yLibrarians +60, 130, 20);
+        removeLibrarianButton.setFocusable(false);
+        removeLibrarianButton.addActionListener(this);
+    }
+
+    private void setupLibrarianNameField() {
+        librarianNameField.setBounds(290, yLibrarians +25, 90, 20);
+    }
+
+    private void setupLibrarianNameLabel() {
+        librarianNameLabel.setText("<html>Librarian<br>name: </html>");
+        librarianNameLabel.setBounds(220, yLibrarians +15, 80, 40);
     }
 
     private void setupRemoveUserButton() {
@@ -97,7 +125,7 @@ public class UserPage extends JFrame implements ActionListener {
     }
 
     private void setupUsers() {
-        List<User> allUsers = authentication.getAllUsers();
+        List<User> allUsers = authentication.getAllUsers("users");
         for (int i = 0; i < allUsers.size(); i++) {
             this.users.add(new JLabel());
             this.users.get(i).setText(allUsers.get(i).getName());
@@ -108,7 +136,7 @@ public class UserPage extends JFrame implements ActionListener {
     }
 
     private void setupLibrarians() {
-        List<User> allLibrarians = authentication.getAllLibrarians();
+        List<User> allLibrarians = authentication.getAllUsers("librarians");
         for (int i = 0; i < allLibrarians.size(); i++) {
             this.librarians.add(new JLabel());
             this.librarians.get(i).setText(allLibrarians.get(i).getName());
@@ -133,6 +161,10 @@ public class UserPage extends JFrame implements ActionListener {
             }else {
                 authentication.removeProfile(usernameField.getText(), "users");
             }
+            this.dispose();
+            new UserPage(bookController);
+        } else if (source.equals(removeLibrarianButton)) {
+            authentication.removeProfile(librarianNameField.getText(), "librarians");
             this.dispose();
             new UserPage(bookController);
         }

@@ -40,18 +40,18 @@ public class UserDBImpl implements UserDB{
         }
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(String table) {
         List<User> allUsers = new ArrayList<>();
         Connection con;
         PreparedStatement p ;
         ResultSet rs ;
         con = ConnectionDB.connect();
         try {
-            String sql = "SELECT * FROM users";
+            String sql = "SELECT * FROM " + table;
             p = con.prepareStatement(sql);
             rs = p.executeQuery();
             while (rs.next()) {
-                String userName = rs.getString("username");
+                String userName = rs.getString("name");
                 String password= rs.getString("password");
                 allUsers.add(new User(userName, password));
             }
@@ -61,32 +61,10 @@ public class UserDBImpl implements UserDB{
         return allUsers;
     }
 
-    @Override
-    public List<User> getAllLibrarians() {
-        List<User> allLibrarians = new ArrayList<>();
-        Connection con;
-        PreparedStatement p ;
-        ResultSet rs ;
-        con = ConnectionDB.connect();
-        try {
-            String sql = "SELECT * FROM librarians";
-            p = con.prepareStatement(sql);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                String name = rs.getString("name");
-                String password= rs.getString("password");
-                allLibrarians.add(new User(name, password));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return allLibrarians;
-    }
-
     public void removeUserProfile(String username, String tableName){
         try {
             String sql = "DELETE FROM "+ tableName +
-                    " WHERE username = '" + username + "'";
+                    " WHERE name = '" + username + "'";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();

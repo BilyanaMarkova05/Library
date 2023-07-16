@@ -8,9 +8,7 @@ public interface UserDB {
 
     void insertTableLibrarians(String name, String password);
 
-    List<User> getAllUsers();
-
-    List<User> getAllLibrarians();
+    List<User> getAllUsers(String table);
 
     void removeUserProfile(String username, String tableName);
 }

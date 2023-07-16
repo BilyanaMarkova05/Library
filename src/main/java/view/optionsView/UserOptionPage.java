@@ -155,7 +155,7 @@ public class UserOptionPage extends JFrame implements ActionListener {
     private boolean doesUserHaveBooks(){
         boolean doesUserHaveBooks = false;
         for (User user:
-                authentication.getAllUsers()) {
+                authentication.getAllUsers("users")) {
             if (user.getName().equals(AuthenticationImpl.getLoggedUser().getName())){
                 if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
                     doesUserHaveBooks = true;

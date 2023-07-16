@@ -25,7 +25,7 @@ public class RegistrationUserPage extends AuthenticationPage {
             this.navigateToPage(HomePage.getInstance());
         } else if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
-            authentication.registration(this.getNameField().getText(), password);
+            authentication.register(this.getNameField().getText(), password);
             this.dispose();
             if(AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){

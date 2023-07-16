@@ -26,12 +26,13 @@ public class LoginLibrarianPage extends AuthenticationPage{
         }
         if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
-            authentication.loginAsLibrarian(this.getNameField().getText(), password);
+            authentication.login(this.getNameField().getText(), password, "librarians");
             this.dispose();
 
             if (AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
                 JOptionPane.showMessageDialog(null, "Login failed. Please try again");
+                new LoginLibrarianPage();
             } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
                 JOptionPane.showMessageDialog(null, "Login successful");
                 BookController bookController = new BookControllerImpl();

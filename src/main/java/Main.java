@@ -1,5 +1,5 @@
-
 import view.authenticationView.HomePage;
+
 
 public class Main {
 
@@ -8,8 +8,8 @@ public class Main {
 
 //        try {
 //            Statement statement = ConnectionDB.connect().createStatement();
-//            String sql = "DELETE FROM librarians " +
-//                    "WHERE name = '" + "pesho" + "'";
+//            String sql = "ALTER TABLE users " +
+//                    "RENAME COLUMN username TO name";
 //            statement.executeUpdate(sql);
 //        } catch (SQLException e) {
 //            e.printStackTrace();

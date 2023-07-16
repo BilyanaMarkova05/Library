@@ -27,8 +27,8 @@ public class AuthenticationImpl implements Authentication{
     }
 
     @Override
-    public void registration(String name, String password) {
-        for (User user : userDB.getAllUsers()) {
+    public void register(String name, String password) {
+        for (User user : userDB.getAllUsers("users")) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
                 new RegistrationUserPage();
@@ -42,7 +42,7 @@ public class AuthenticationImpl implements Authentication{
 
     @Override
     public void registerLibrarian(String name, String password) {
-        for (User user : userDB.getAllLibrarians()) {
+        for (User user : userDB.getAllUsers("librarians")) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
                 new RegistrationLibrarianPage("Registration", "Sign in");
@@ -53,37 +53,14 @@ public class AuthenticationImpl implements Authentication{
         new AdminOptionPage(new BookControllerImpl());
     }
 
-    @Override
-    public void login(String name, String password) {
-        boolean isUserLogged = false;
-        for (User user : userDB.getAllUsers()) {
+    public void login(String name, String password, String table) {
+        for (User user : userDB.getAllUsers(table)) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch
                     && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))) {
                 loggedUser = user;
                 loggedUser.setUserStatus(UserStatus.LOGGED);
-                isUserLogged = true;
             }
-        }
-        if(!isUserLogged){
-            new LoginPage();
-        }
-    }
-
-    @Override
-    public void loginAsLibrarian(String name, String password) {
-        boolean isUserLogged = false;
-        for (User user : userDB.getAllLibrarians()) {
-            boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
-            if (name.equals(user.getName()) && passwordMatch
-                    && !(name.equals(admin.getName()) && password.equals(admin.getPassword()))) {
-                loggedUser = user;
-                loggedUser.setUserStatus(UserStatus.LOGGED);
-                isUserLogged = true;
-            }
-        }
-        if(!isUserLogged){
-            new LoginLibrarianPage();
         }
     }
 
@@ -108,13 +85,8 @@ public class AuthenticationImpl implements Authentication{
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userDB.getAllUsers();
-    }
-
-    @Override
-    public List<User> getAllLibrarians() {
-        return userDB.getAllLibrarians();
+    public List<User> getAllUsers(String table) {
+        return userDB.getAllUsers(table);
     }
 
     @Override

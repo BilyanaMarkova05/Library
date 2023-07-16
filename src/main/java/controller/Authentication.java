@@ -6,21 +6,17 @@ import java.util.List;
 
 public interface Authentication {
 
-    void registration(String name, String password);
+    void register(String name, String password);
 
     void registerLibrarian(String name, String password);
 
-    void login(String name, String password);
-
-    void loginAsLibrarian(String name, String password);
+    void login(String name, String password, String table);
 
     void loginAsAdmin(String name, String password);
 
     void logout();
 
-    List<User> getAllUsers();
-
-    List<User> getAllLibrarians();
+    List<User> getAllUsers(String table);
 
     void removeProfile(String username, String tableName);
 
