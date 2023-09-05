@@ -5,18 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userModel/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userModel/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userModel/UserDBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/userModel/UserDBImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/UserOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/UserPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

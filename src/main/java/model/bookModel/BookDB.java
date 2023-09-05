@@ -16,7 +16,7 @@ public interface BookDB {
 
     void insertBookedBooksTable(String username, String bookName);
 
-    void insertBooksTable(String bookName, String bookStatus);
+    void insertBooksTable(String bookName, String bookStatus, String genre);
 
     void deleteFromBookedBooks(String userName, String bookName);
 

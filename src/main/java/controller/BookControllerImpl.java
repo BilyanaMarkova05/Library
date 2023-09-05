@@ -5,23 +5,17 @@ import model.bookModel.BookDB;
 import model.bookModel.BookDBImpl;
 import model.bookModel.BookStatus;
 import model.userModel.User;
-import model.userModel.UserDB;
-import model.userModel.UserDBImpl;
-
-
 import javax.swing.*;
 import java.util.List;
 
 public class BookControllerImpl implements BookController{
     private final BookDB bookDB;
     private final User loggedUser;
-    private final UserDB userDB;
     private final Authentication authentication;
 
     public BookControllerImpl() {
         this.bookDB = new BookDBImpl();
         this.loggedUser = AuthenticationImpl.getLoggedUser();
-        this.userDB = new UserDBImpl();
         this.authentication = AuthenticationImpl.getInstance();
     }
 
@@ -65,14 +59,14 @@ public class BookControllerImpl implements BookController{
     }
 
     @Override
-    public void addBook(String bookName, String bookStatus) {
+    public void addBook(String bookName, String bookStatus, String genre) {
         for (Book book: bookDB.getAllBooks()) {
             if (book.getName().equals(bookName)){
                 JOptionPane.showMessageDialog(null, bookName + " already exist.");
                 return;
             }
         }
-        bookDB.insertBooksTable(bookName, bookStatus);
+        bookDB.insertBooksTable(bookName, bookStatus, genre);
     }
 
     @Override

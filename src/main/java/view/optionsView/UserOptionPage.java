@@ -1,78 +1,46 @@
 package view.optionsView;
-
-import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
-import model.bookModel.Book;
-
 import model.userModel.User;
 import view.authenticationView.HomePage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class UserOptionPage extends JFrame implements ActionListener {
+public class UserOptionPage extends BaseOptionPage implements ActionListener {
     private final JButton rentButton;
     private final JButton yourBooksButton;
-    private final JButton logoutButton;
-    private final JButton returnButton;
     private final JLabel bookNameLabel;
     private final JTextField bookNameField;
     private final BookController bookController;
-    private final List<JLabel> allBooks;
-    private final Authentication authentication;
-    private int y;
     private final JButton deleteProfileButton;
 
     public UserOptionPage(BookController bookController){
+        super(bookController);
         this.rentButton = new JButton();
         this.yourBooksButton = new JButton();
-        this.logoutButton = new JButton();
-        this.returnButton = new JButton();
         this.bookNameLabel = new JLabel();
         this.bookNameField = new JTextField();
         this.bookController = bookController;
-        this.allBooks = new ArrayList<>();
-        this.authentication = AuthenticationImpl.getInstance();
-        this.y = 40;
         this.deleteProfileButton = new JButton();
         setupComponents();
 
     }
 
     private void setupComponents() {
-        setupAllBooks();
         setupRentButton();
         setupYourBooksButton();
-        setupLogoutButton();
-        setupReturnButton();
         setupBookNameLabel();
         setupBookNameField();
         setupDeleteProfileButton();
         setupFrame();
     }
 
-    private void setupAllBooks() {
-        List<Book> allBooksDb = bookController.getAllBooks();
-        for (int i = 0; i < allBooksDb.size(); i++) {
-            allBooks.add(new JLabel());
-            allBooks.get(i).setText(allBooksDb.get(i).getName() + " " + allBooksDb.get(i).getBookStatus());
-            allBooks.get(i).setBounds(140, y, 190, 60);
-            this.add(allBooks.get(i));
-            y+= 30;
-        }
-    }
-
     private void setupFrame() {
         this.add(rentButton);
         this.add(yourBooksButton);
-        this.add(logoutButton);
-        this.add(returnButton);
         this.add(bookNameLabel);
         this.add(bookNameField);
         this.add(deleteProfileButton);
@@ -85,38 +53,24 @@ public class UserOptionPage extends JFrame implements ActionListener {
     }
 
     private void setupBookNameField() {
-        bookNameField.setBounds(150, y+25, 130, 20);
+        bookNameField.setBounds(150, this.getY()+25, 130, 20);
     }
 
     private void setupBookNameLabel() {
         bookNameLabel.setText("Book name: ");
-        bookNameLabel.setBounds(80, y+15, 80, 40);
-    }
-
-    private void setupReturnButton() {
-        returnButton.setText("return");
-        returnButton.setBounds(10, 20, 90, 20);
-        returnButton.setFocusable(false);
-        returnButton.addActionListener(this);
-    }
-
-    private void setupLogoutButton() {
-        logoutButton.setText("Logout");
-        logoutButton.setBounds(300, 50, 90, 20);
-        logoutButton.setFocusable(false);
-        logoutButton.addActionListener(this);
+        bookNameLabel.setBounds(80, this.getY()+15, 80, 40);
     }
 
     private void setupYourBooksButton() {
         yourBooksButton.setText("Your books");
-        yourBooksButton.setBounds(160, y+90, 100, 20);
+        yourBooksButton.setBounds(160, this.getY()+90, 100, 20);
         yourBooksButton.setFocusable(false);
         yourBooksButton.addActionListener(this);
     }
 
     private void setupRentButton() {
         rentButton.setText("Rent");
-        rentButton.setBounds(160, y+60, 100, 20);
+        rentButton.setBounds(160, this.getY()+60, 100, 20);
         rentButton.setFocusable(false);
         rentButton.addActionListener(this);
     }
@@ -131,12 +85,7 @@ public class UserOptionPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source.equals(returnButton)){
-            navigateToAuthenticationPage();
-        } else if (source.equals(logoutButton)){
-           authentication.logout();
-           navigateToAuthenticationPage();
-        } else if (source.equals(rentButton)){
+       if (source.equals(rentButton)){
             bookController.rentBook(bookNameField.getText());
             navigateToUserOptionPage();
         } else if (source.equals(yourBooksButton)) {
@@ -146,7 +95,7 @@ public class UserOptionPage extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
-                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
+                this.getAuthentication().removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
                 navigateToAuthenticationPage();
             }
         }
@@ -155,7 +104,7 @@ public class UserOptionPage extends JFrame implements ActionListener {
     private boolean doesUserHaveBooks(){
         boolean doesUserHaveBooks = false;
         for (User user:
-                authentication.getAllUsers("users")) {
+                this.getAuthentication().getAllUsers("users")) {
             if (user.getName().equals(AuthenticationImpl.getLoggedUser().getName())){
                 if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
                     doesUserHaveBooks = true;

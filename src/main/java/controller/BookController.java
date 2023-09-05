@@ -11,7 +11,7 @@ public interface BookController {
 
     void returnBook(String bookName);
 
-    void addBook(String bookName, String bookStatus);
+    void addBook(String bookName, String bookStatus, String genre);
 
     void removeBook(String bookName);
 

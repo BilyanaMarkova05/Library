@@ -48,7 +48,8 @@ public class BookDBImpl implements BookDB{
             while (rs.next()) {
                 String bookName = rs.getString("bookName");
                 String bookStatus = rs.getString("bookStatus");
-                allBooks.add(new Book(bookName, validateBookStatus(bookStatus)));
+                String genre = rs.getString("genre");
+                allBooks.add(new Book(bookName, validateBookStatus(bookStatus), genre));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,10 +111,10 @@ public class BookDBImpl implements BookDB{
     }
 
     @Override
-    public void insertBooksTable(String bookName, String bookStatus) {
+    public void insertBooksTable(String bookName, String bookStatus, String genre) {
         try {
-            String sql = "INSERT INTO books (bookName, bookStatus) " +
-                    "VALUES ('" + bookName + "'" + ", " + "'" + bookStatus + "')";
+            String sql = "INSERT INTO books (bookName, bookStatus, genre) " +
+                    "VALUES ('" + bookName + "', '" + bookStatus + "', '" + genre+ "')";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
