@@ -7,12 +7,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static model.ConnectionDB.connect;
+
 public class BookDBImpl implements BookDB{
     private Statement statement;
 
     public BookDBImpl() {
         try {
-            statement = ConnectionDB.connect().createStatement();
+            statement = connect().createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -23,7 +25,7 @@ public class BookDBImpl implements BookDB{
                 + "SET bookStatus = ? "
                 + "WHERE bookName = ?";
 
-        try (Connection conn = ConnectionDB.connect();
+        try (Connection conn = connect();
              PreparedStatement statement = conn.prepareStatement(SQL)) {
 
             statement.setString(1, bookStatus);
@@ -40,7 +42,7 @@ public class BookDBImpl implements BookDB{
         Connection con ;
         PreparedStatement p ;
         ResultSet rs ;
-        con = ConnectionDB.connect();
+        con = connect();
         try {
             String sql = "SELECT * FROM books";
             p = con.prepareStatement(sql);
@@ -76,7 +78,7 @@ public class BookDBImpl implements BookDB{
         Connection con ;
         PreparedStatement p ;
         ResultSet rs ;
-        con = ConnectionDB.connect();
+        con = connect();
         try {
             String sql = "SELECT * FROM bookedBooks";
             p = con.prepareStatement(sql);

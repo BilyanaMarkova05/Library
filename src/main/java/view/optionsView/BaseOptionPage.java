@@ -18,7 +18,6 @@ public class BaseOptionPage extends JFrame implements ActionListener {
     private final JButton returnButton;
     private final BookController bookController;
     private final List<JLabel> allBooks;
-    private final Authentication authentication;
     private int y;
 
     public BaseOptionPage(BookController bookController) {
@@ -26,18 +25,21 @@ public class BaseOptionPage extends JFrame implements ActionListener {
         this.returnButton = new JButton();
         this.bookController = bookController;
         this.allBooks = new ArrayList<>();
-        this.authentication = AuthenticationImpl.getInstance();
-        this.y = 40;
+        this.y = 50;
         setupComponents();
+    }
+
+    public JButton getLogoutButton() {
+        return logoutButton;
+    }
+
+    public JButton getReturnButton() {
+        return returnButton;
     }
 
     @Override
     public int getY() {
         return y;
-    }
-
-    public Authentication getAuthentication() {
-        return authentication;
     }
 
     private void setupComponents() {
@@ -87,17 +89,5 @@ public class BaseOptionPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        if (source.equals(returnButton)){
-            navigateToHomePage();
-        } else if (source.equals(logoutButton)){
-            authentication.logout();
-            navigateToHomePage();
-        }
-    }
-
-    private void navigateToHomePage() {
-        this.dispose();
-        HomePage.getInstance().setVisible(true);
     }
 }

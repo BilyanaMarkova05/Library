@@ -1,5 +1,8 @@
 package view.optionsView;
+import controller.AuthenticationImpl;
 import controller.BookController;
+import view.authenticationView.HomePage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -92,7 +95,17 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
             navigateToLibrarianOptionPage();
         } else if (source.equals(bookedBooksButton)) {
             navigateToBookedBooksPage();
+        } else if(source.equals(this.getLogoutButton())){
+            navigateToHomePage();
+            AuthenticationImpl.getInstance().logout();
+        } else if(source.equals(this.getReturnButton())){
+            navigateToHomePage();
         }
+    }
+
+    private void navigateToHomePage() {
+        this.dispose();
+        HomePage.getInstance().setVisible(true);
     }
 
     private void navigateToBookedBooksPage() {

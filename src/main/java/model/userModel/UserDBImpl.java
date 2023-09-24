@@ -20,7 +20,7 @@ public class UserDBImpl implements UserDB{
     public void insertTableUsers(String username, String password) {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         try {
-            String sql = "INSERT INTO users (username, password) " +
+            String sql = "INSERT INTO users (name, password) " +
                     "VALUES ('" + username + "'" + ", " + "'" + hashedPassword + "')";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
@@ -40,6 +40,7 @@ public class UserDBImpl implements UserDB{
         }
     }
 
+    @Override
     public List<User> getAllUsers(String table) {
         List<User> allUsers = new ArrayList<>();
         Connection con;

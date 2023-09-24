@@ -1,4 +1,5 @@
 package view.optionsView;
+import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.userModel.User;
@@ -16,6 +17,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
     private final JTextField bookNameField;
     private final BookController bookController;
     private final JButton deleteProfileButton;
+    private final Authentication authentication;
 
     public UserOptionPage(BookController bookController){
         super(bookController);
@@ -25,6 +27,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
         this.bookNameField = new JTextField();
         this.bookController = bookController;
         this.deleteProfileButton = new JButton();
+        this.authentication = AuthenticationImpl.getInstance();
         setupComponents();
 
     }
@@ -77,7 +80,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
 
     private void setupDeleteProfileButton() {
         deleteProfileButton.setText("Delete profile");
-        deleteProfileButton.setBounds(270, 20, 120, 20);
+        deleteProfileButton.setBounds(270, 45, 120, 20);
         deleteProfileButton.setFocusable(false);
         deleteProfileButton.addActionListener(this);
     }
@@ -95,16 +98,21 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
-                this.getAuthentication().removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
+                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
                 navigateToAuthenticationPage();
             }
-        }
+        } else if (source.equals(this.getLogoutButton())){
+           authentication.logout();
+           navigateToHomePage();
+       } else if(source.equals(this.getReturnButton())){
+           navigateToHomePage();
+       }
     }
 
     private boolean doesUserHaveBooks(){
         boolean doesUserHaveBooks = false;
         for (User user:
-                this.getAuthentication().getAllUsers("users")) {
+                authentication.getAllUsers("users")) {
             if (user.getName().equals(AuthenticationImpl.getLoggedUser().getName())){
                 if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
                     doesUserHaveBooks = true;
@@ -127,5 +135,9 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
     private void navigateToReturnPage() {
         this.dispose();
         new ReturnBookPage(bookController).setVisible(true);
+    }
+    private void navigateToHomePage() {
+        this.dispose();
+        HomePage.getInstance().setVisible(true);
     }
 }
