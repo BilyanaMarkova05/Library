@@ -4,11 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
 
 public class HomePage extends JFrame implements ActionListener {
+    private final ImageIcon icon;
     private static HomePage instance;
-    private final JLabel iconLabel;
     private final JLabel titleLabel;
     private final JButton registrationButton;
     private final JButton loginButton;
@@ -21,8 +20,8 @@ public class HomePage extends JFrame implements ActionListener {
     }
 
     public HomePage(){
+        this.icon = new ImageIcon("icon.jpeg");
         this.registrationButton = new JButton();
-        this.iconLabel = new JLabel();
         this.titleLabel = new JLabel();
         this.loginButton = new JButton();
         this.adminButton = new JButton();
@@ -31,7 +30,7 @@ public class HomePage extends JFrame implements ActionListener {
     }
 
     private void setupComponents() {
-        setupIconLabel();
+        setupIcon();
         setupTitleLabel();
         setupAdminButton();
         setupRegistrationButton();
@@ -39,9 +38,14 @@ public class HomePage extends JFrame implements ActionListener {
         setupLibrarianButton();
         setupFrame();
     }
-    // TO DO: add icon
-    private void setupIconLabel() {
- //       titleLabel.setIcon();
+
+    private void setupIcon() {
+        JLabel iconLabel = new JLabel(this.icon);
+  //      iconLabel.setBounds();
+//        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(iconLabel);
+        this.pack();
+        this.setVisible(true);
     }
 
     private void setupTitleLabel() {
