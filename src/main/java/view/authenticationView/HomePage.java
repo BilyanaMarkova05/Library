@@ -40,18 +40,18 @@ public class HomePage extends JFrame implements ActionListener {
     }
 
     private void setupIcon() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
         JLabel iconLabel = new JLabel(this.icon);
-  //      iconLabel.setBounds();
-//        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        iconLabel.setBounds(105, -10, 200, 200);
         this.add(iconLabel);
-        this.pack();
         this.setVisible(true);
     }
 
     private void setupTitleLabel() {
-        titleLabel.setText("Library Management System");
-        titleLabel.setBounds(15, 0, 400, 400 );
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 29));
+        titleLabel.setText("<html>Library Management<br><center>System</html>");
+        titleLabel.setBounds(60, -30, 400, 400 );
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 30));
     }
 
     private void setupFrame() {

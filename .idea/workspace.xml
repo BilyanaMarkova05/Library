@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="">
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="add icon to Home Page">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/gc.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
@@ -14,10 +22,52 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/Authentication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/AuthenticationImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/AuthenticationImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/ConnectionDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/userModel/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/userModel/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/userModel/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/userModel/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserDBImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/userModel/UserStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AuthenticationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AuthenticationPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationLibrarianPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationLibrarianPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AdminOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AdminOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BookedBooksPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BookedBooksPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/ReturnBookPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/ReturnBookPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminOptionPage.class.uniqueId10" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminOptionPage.class.uniqueId10" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminPage.class.uniqueId8" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminPage.class.uniqueId8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BookedBooksPage.class.uniqueId11" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/BookedBooksPage.class.uniqueId11" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomePage.class.uniqueId2" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/HomePage.class.uniqueId2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LibrarianOptionPage.class.uniqueId3" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LibrarianOptionPage.class.uniqueId3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LoginLibrarianPage.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LoginLibrarianPage.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LoginPage.class.uniqueId4" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LoginPage.class.uniqueId4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId7" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RegistrationUserPage.class.uniqueId5" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RegistrationUserPage.class.uniqueId5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ReturnBookPage.class.uniqueId1" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ReturnBookPage.class.uniqueId1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserOptionPage.class.uniqueId6" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserOptionPage.class.uniqueId6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserPage.class.uniqueId9" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UserPage.class.uniqueId9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icon.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/icon.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/HomePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,20 +116,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/bilianamarkova/IdeaProjects/Library&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/bilianamarkova/IdeaProjects/Library",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -107,7 +157,26 @@
       <workItem from="1695483596726" duration="157000" />
       <workItem from="1695548538588" duration="5023000" />
       <workItem from="1695556149291" duration="7312000" />
+      <workItem from="1695565732779" duration="251000" />
+      <workItem from="1695823215265" duration="658000" />
     </task>
+    <task id="LOCAL-00001" summary="add icon to Home Page">
+      <option name="closed" value="true" />
+      <created>1695565860764</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695565860764</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add icon to Home Page">
+      <option name="closed" value="true" />
+      <created>1695565937943</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695565937943</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +192,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add icon to Home Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add icon to Home Page" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
