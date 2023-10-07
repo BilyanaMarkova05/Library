@@ -72,10 +72,6 @@ public class UserPage extends JFrame implements ActionListener {
         this.add(removeLibrarianButton);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Users");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     private void setupRemoveLibrarianButton() {

@@ -46,10 +46,6 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         this.add(bookNameField);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Options");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     private void setupBookNameField() {

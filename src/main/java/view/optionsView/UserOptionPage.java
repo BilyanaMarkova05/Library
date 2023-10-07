@@ -47,12 +47,8 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
         this.add(bookNameLabel);
         this.add(bookNameField);
         this.add(deleteProfileButton);
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.ORANGE);
         this.setTitle("Options");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     private void setupBookNameField() {

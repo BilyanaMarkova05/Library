@@ -1,13 +1,14 @@
 package view.authenticationView;
 
+import view.BasePage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AuthenticationPage extends JFrame implements ActionListener {
+public class AuthenticationPage extends BasePage implements ActionListener {
 
-    private final ImageIcon icon;
     private final JLabel titleLabel;
     private final JLabel nameLabel;
     private final JTextField nameField;
@@ -18,7 +19,6 @@ public class AuthenticationPage extends JFrame implements ActionListener {
 
 
     public AuthenticationPage(String title, String buttonName) {
-        this.icon = new ImageIcon("icon.jpeg");
         this.titleLabel = new JLabel();
         this.nameLabel = new JLabel();
         this.nameField = new JTextField();
@@ -45,13 +45,7 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         return authenticationButton;
     }
 
-    public void navigateToPage(JFrame jFrame){
-        this.dispose();
-        jFrame.setVisible(true);
-    }
-
     private void setupComponents(String title, String buttonName) {
-        setupIcon();
         setupTitleLabel();
         setupNameLabel();
         setupNameField();
@@ -60,12 +54,6 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         setupAuthenticationButton(buttonName);
         setupReturnButton();
         setupFrame(title);
-    }
-
-    private void setupIcon() {
-        JLabel iconLabel = new JLabel(this.icon);
-        iconLabel.setBounds(0, 90, 200, 200);
-        this.add(iconLabel);
     }
 
     private void setupTitleLabel() {
@@ -82,18 +70,12 @@ public class AuthenticationPage extends JFrame implements ActionListener {
         this.add(passwordField);
         this.add(authenticationButton);
         this.add(returnButton);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setBackground(Color.ORANGE);
         this.setTitle(title);
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     private void setupReturnButton() {
         returnButton.setText("<");
-        returnButton.setBounds(10, 20, 50, 20);
+        returnButton.setBounds(10, 20, 20, 20);
         returnButton.setFocusable(false);
         returnButton.addActionListener(this);
         returnButton.setBackground(Color.RED);

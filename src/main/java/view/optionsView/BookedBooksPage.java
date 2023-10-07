@@ -3,6 +3,7 @@ package view.optionsView;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
+import view.BasePage;
 import view.authenticationView.HomePage;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookedBooksPage extends JFrame implements ActionListener {
+public class BookedBooksPage extends BasePage implements ActionListener {
     private final JButton returnButton;
     private final JButton logoutButton;
     private final BookController bookController;
@@ -67,10 +68,6 @@ public class BookedBooksPage extends JFrame implements ActionListener {
         this.add(logoutButton);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Booked books");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     @Override

@@ -3,6 +3,7 @@ package view.optionsView;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
+import view.BasePage;
 import view.authenticationView.HomePage;
 import view.authenticationView.RegistrationLibrarianPage;
 
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdminOptionPage extends JFrame implements ActionListener {
+public class AdminOptionPage extends BasePage implements ActionListener {
     private final JButton logoutButton;
     private final JButton returnButton;
     private final JButton usersButton;
@@ -51,10 +52,6 @@ public class AdminOptionPage extends JFrame implements ActionListener {
         this.add(registerLibrarianButton);
         this.getContentPane().setBackground(Color.WHITE);
         this.setTitle("Options");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
     }
 
     private void setupUsersButton() {

@@ -4,6 +4,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.bookModel.Book;
+import view.BasePage;
 import view.authenticationView.HomePage;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseOptionPage extends JFrame implements ActionListener {
+public class BaseOptionPage extends BasePage implements ActionListener {
     private final JButton logoutButton;
     private final JButton returnButton;
     private final BookController bookController;
@@ -52,17 +53,14 @@ public class BaseOptionPage extends JFrame implements ActionListener {
     private void setupFrame() {
         this.add(logoutButton);
         this.add(returnButton);
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.ORANGE);
         this.setTitle("Options");
-        this.setBounds(550, 150, 420, 630);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setVisible(true);
+
     }
 
     private void setupReturnButton() {
-        returnButton.setText("return");
-        returnButton.setBounds(10, 20, 90, 20);
+        returnButton.setText("<");
+        returnButton.setBounds(10, 20, 20, 20);
         returnButton.setFocusable(false);
         returnButton.addActionListener(this);
     }
