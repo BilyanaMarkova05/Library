@@ -5,9 +5,11 @@ import controller.AuthenticationImpl;
 import controller.BookController;
 import controller.BookControllerImpl;
 import model.userModel.UserStatus;
+import view.HomePage;
 import view.optionsView.UserOptionPage;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class LoginPage extends AuthenticationPage{
@@ -16,6 +18,7 @@ public class LoginPage extends AuthenticationPage{
     public LoginPage() {
         super("Login", "Login");
         this.authentication = AuthenticationImpl.getInstance();
+        this.getContentPane().setBackground(Color.ORANGE);
     }
 
     @Override

@@ -4,7 +4,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.BasePage;
-import view.authenticationView.HomePage;
+import view.HomePage;
 import view.authenticationView.RegistrationLibrarianPage;
 
 import javax.swing.*;

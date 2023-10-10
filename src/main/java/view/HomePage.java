@@ -1,6 +1,9 @@
-package view.authenticationView;
+package view;
 
-import view.BasePage;
+import view.authenticationView.AdminPage;
+import view.authenticationView.LoginLibrarianPage;
+import view.authenticationView.LoginPage;
+import view.authenticationView.RegistrationUserPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +12,6 @@ import java.awt.event.ActionListener;
 
 public class HomePage extends BasePage implements ActionListener {
     private static HomePage instance;
-    private final JLabel titleLabel;
     private final JButton registrationButton;
     private final JButton loginButton;
     private final JButton librarianButton;
@@ -21,8 +23,10 @@ public class HomePage extends BasePage implements ActionListener {
     }
 
     public HomePage(){
+        setLayout(null);
+        setTitle("Home");
+        this.getContentPane().setBackground(Color.ORANGE);
         this.registrationButton = new JButton();
-        this.titleLabel = new JLabel();
         this.loginButton = new JButton();
         this.adminButton = new JButton();
         this.librarianButton = new JButton();
@@ -30,55 +34,63 @@ public class HomePage extends BasePage implements ActionListener {
     }
 
     private void setupComponents() {
-        setupFrame();
-        setupTitleLabel();
+        setupIcon();
         setupRegistrationButton();
         setupLoginButton();
         setupLibrarianButton();
         setupAdminButton();
+        setupTitleLabel();
     }
 
-    private void setupFrame() {
-        this.setTitle("Home");
-        this.add(titleLabel);
-        this.add(registrationButton);
-        this.add(loginButton);
-        this.add(adminButton);
-        this.add(librarianButton);
+    private void setupIcon() {
+        ImageIcon icon = new ImageIcon("icon.jpeg");
+        Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel iconLabel = new JLabel(scaledIcon);
 
+        JPanel panel = new JPanel();
+        panel.setBounds(600, 30, 500, 205);
+        panel.setBackground(Color.ORANGE);
+        panel.add(iconLabel);
+        this.add(panel);
     }
 
     private void setupTitleLabel() {
-        titleLabel.setText("<html>Library Management<br><center>System</html>");
-        titleLabel.setBounds(600, -10, 500, 500 );
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 50));
-        titleLabel.setVisible(true);
+        JLabel titleLabel = new JLabel("<html>Library Management<br><center> System</html>");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 90));
+
+        JPanel panel = new JPanel();
+        panel.setBounds(400, 250, 900, 215);
+        panel.add(titleLabel);
+        panel.setBackground(Color.ORANGE);
+        this.add(panel);
     }
 
     private void setupRegistrationButton() {
-        registrationButton.setText("Sing in");
-        registrationButton.setBounds(750, 370, 200, 40);
-        registrationButton.setFocusable(false);
+        registrationButton.setText("Sign in");
+        registrationButton.setBounds(750, 520, 200, 40);
+        this.add(registrationButton);
         registrationButton.addActionListener(this);
     }
 
     private void setupLoginButton() {
         loginButton.setText("Login");
-        loginButton.setBounds(750, 420, 200, 40);
-        loginButton.setFocusable(false);
+        loginButton.setBounds(750, 570, 200, 40);
+        add(loginButton);
         loginButton.addActionListener(this);
     }
 
+
     private void setupLibrarianButton() {
         librarianButton.setText("Librarian");
-        librarianButton.setBounds(750, 520, 200, 40);
-        librarianButton.setFocusable(false);
+        librarianButton.setBounds(750, 620, 200, 40);
+        add(librarianButton);
         librarianButton.addActionListener(this);
     }
     private void setupAdminButton() {
         adminButton.setText("Admin");
-        adminButton.setBounds(750, 620, 200, 40);
-        adminButton.setFocusable(false);
+        adminButton.setBounds(750, 670, 200, 40);
+        add(adminButton);
         adminButton.addActionListener(this);
     }
 

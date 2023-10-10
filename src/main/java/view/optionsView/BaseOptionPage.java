@@ -1,11 +1,8 @@
 package view.optionsView;
 
-import controller.Authentication;
-import controller.AuthenticationImpl;
 import controller.BookController;
 import model.bookModel.Book;
 import view.BasePage;
-import view.authenticationView.HomePage;
 
 import javax.swing.*;
 import java.awt.*;

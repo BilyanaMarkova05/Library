@@ -5,6 +5,7 @@ import controller.AuthenticationImpl;
 import controller.BookController;
 import controller.BookControllerImpl;
 import model.userModel.UserStatus;
+import view.HomePage;
 import view.optionsView.LibrarianOptionPage;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class LoginLibrarianPage extends AuthenticationPage{
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(this.getReturnButton())){
-            this.navigateToPage(HomePage.getInstance());
+         //   this.navigateToPage(HomePage.getInstance());
         }
         if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());

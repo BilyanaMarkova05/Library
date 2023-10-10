@@ -5,6 +5,7 @@ import controller.AuthenticationImpl;
 import controller.BookController;
 import controller.BookControllerImpl;
 import model.userModel.UserStatus;
+import view.HomePage;
 import view.optionsView.UserOptionPage;
 
 import javax.swing.*;

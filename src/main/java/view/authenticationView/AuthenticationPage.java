@@ -78,13 +78,11 @@ public class AuthenticationPage extends BasePage implements ActionListener {
         returnButton.setBounds(10, 20, 20, 20);
         returnButton.setFocusable(false);
         returnButton.addActionListener(this);
-        returnButton.setBackground(Color.RED);
     }
 
     private void setupAuthenticationButton(String buttonName) {
         authenticationButton.setText(buttonName);
         authenticationButton.setBounds(100, 400, 200, 30);
-        authenticationButton.setBackground(Color.ORANGE);
         authenticationButton.setFocusable(false);
         authenticationButton.addActionListener(this);
     }

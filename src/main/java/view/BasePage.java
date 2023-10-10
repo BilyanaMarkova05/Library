@@ -6,9 +6,9 @@ import java.awt.*;
 public class BasePage extends JFrame {
 
     public BasePage(){
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setVisible(true);
     }
 
     public void navigateToPage(JFrame jFrame){

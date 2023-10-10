@@ -3,7 +3,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.userModel.User;
-import view.authenticationView.HomePage;
+import view.HomePage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

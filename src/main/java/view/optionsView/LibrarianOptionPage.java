@@ -1,7 +1,7 @@
 package view.optionsView;
 import controller.AuthenticationImpl;
 import controller.BookController;
-import view.authenticationView.HomePage;
+import view.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
