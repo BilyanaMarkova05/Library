@@ -25,7 +25,7 @@ public class LoginPage extends AuthenticationPage{
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(this.getReturnButton())){
-            this.navigateToPage(HomePage.getInstance());
+            this.navigateToPage(this, HomePage.getInstance());
         }
         if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
@@ -34,12 +34,11 @@ public class LoginPage extends AuthenticationPage{
 
             if (AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
-                JOptionPane.showMessageDialog(null, "Login failed. Please try again");
-                new LoginPage();
+                this.showMessage(new LoginPage(), "Login failed. Please try again", Color.RED, 250);
             } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
-                JOptionPane.showMessageDialog(null, "Login successful");
+                this.showMessage(this, "Login successful", Color.GREEN, 200);
                 BookController bookController = new BookControllerImpl();
-                this.navigateToPage(new UserOptionPage(bookController));
+                this.navigateToPage(this, new UserOptionPage(bookController));
             }
         }
     }

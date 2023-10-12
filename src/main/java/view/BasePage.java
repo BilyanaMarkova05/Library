@@ -11,8 +11,8 @@ public class BasePage extends JFrame {
         setVisible(true);
     }
 
-    public void navigateToPage(JFrame jFrame){
-        this.dispose();
+    public void navigateToPage(JFrame currentFrame, JFrame jFrame){
+        currentFrame.dispose();
         jFrame.setVisible(true);
     }
 }

@@ -21,7 +21,7 @@ public class RegistrationLibrarianPage extends AuthenticationPage{
         Object source = e.getSource();
         if (source.equals(this.getReturnButton())) {
             BookController bookController = new BookControllerImpl();
-            this.navigateToPage(new AdminOptionPage(bookController));
+            this.navigateToPage(this, new AdminOptionPage(bookController));
         } else if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
             authentication.registerLibrarian(this.getNameField().getText(), password);

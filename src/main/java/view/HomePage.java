@@ -43,13 +43,13 @@ public class HomePage extends BasePage implements ActionListener {
     }
 
     private void setupIcon() {
-        ImageIcon icon = new ImageIcon("icon.jpeg");
+        ImageIcon icon = new ImageIcon("icon.png");
         Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         JLabel iconLabel = new JLabel(scaledIcon);
 
         JPanel panel = new JPanel();
-        panel.setBounds(600, 30, 500, 205);
+        panel.setBounds(700, 30, 300, 205);
         panel.setBackground(Color.ORANGE);
         panel.add(iconLabel);
         this.add(panel);
@@ -98,33 +98,13 @@ public class HomePage extends BasePage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(registrationButton)) {
-            navigateToRegistrationPage();
+            navigateToPage(this, new RegistrationUserPage());
         }else if (source.equals(loginButton)){
-            navigateToLoginPage();
+            navigateToPage(this, new LoginPage());
         }else if(source.equals(librarianButton)){
-            navigateToLoginLibrarianPage();
+            navigateToPage(this, new LoginLibrarianPage());
         }else if (source.equals(adminButton)){
-            navigateToAdminPage();
+            navigateToPage(this, new AdminPage());
         }
-    }
-
-    private void navigateToAdminPage() {
-        this.dispose();
-        new AdminPage();
-    }
-
-    private void navigateToLoginPage() {
-        this.dispose();
-        new LoginPage();
-    }
-
-    private void navigateToRegistrationPage() {
-        this.dispose();
-        new RegistrationUserPage().setVisible(true);
-    }
-
-    private void navigateToLoginLibrarianPage() {
-        this.dispose();
-        new LoginLibrarianPage();
     }
 }

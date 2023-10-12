@@ -8,6 +8,7 @@ import view.HomePage;
 import view.optionsView.AdminOptionPage;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class AdminPage extends AuthenticationPage {
@@ -30,7 +31,7 @@ public class AdminPage extends AuthenticationPage {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(this.getReturnButton())){
-            this.navigateToPage(HomePage.getInstance());
+            this.navigateToPage(this, HomePage.getInstance());
         }
         if (source.equals(this.getAuthenticationButton())){
             String password = new String(this.getPasswordField().getPassword());
@@ -39,10 +40,10 @@ public class AdminPage extends AuthenticationPage {
 
             if (AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
-                JOptionPane.showMessageDialog(null, "Login failed. Please try again");
+                this.showMessage(new AdminPage(), "Login failed. Please try again", Color.RED, 250);
             }else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED){
-                JOptionPane.showMessageDialog(null, "Login successful");
-                this.navigateToPage(new AdminOptionPage(new BookControllerImpl()));
+                this.showMessage(this, "Login successful", Color.GREEN, 200);
+                this.navigateToPage(this, new AdminOptionPage(new BookControllerImpl()));
             }
         }
     }
