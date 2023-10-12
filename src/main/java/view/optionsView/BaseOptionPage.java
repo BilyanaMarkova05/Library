@@ -19,12 +19,16 @@ public class BaseOptionPage extends BasePage implements ActionListener {
     private int y;
 
     public BaseOptionPage(BookController bookController) {
+        this.getContentPane().setBackground(Color.ORANGE);
+        this.setTitle("Options");
+        setLayout(null);
         this.logoutButton = new JButton();
         this.returnButton = new JButton();
         this.bookController = bookController;
         this.allBooks = new ArrayList<>();
         this.y = 50;
-        setupComponents();
+        setupLogoutButton();
+        setupReturnButton();
     }
 
     public JButton getLogoutButton() {
@@ -40,36 +44,24 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         return y;
     }
 
-    private void setupComponents() {
-        setupAllBooks();
-        setupLogoutButton();
-        setupReturnButton();
-        setupFrame();
-    }
-
-    private void setupFrame() {
-        this.add(logoutButton);
-        this.add(returnButton);
-        this.getContentPane().setBackground(Color.ORANGE);
-        this.setTitle("Options");
-
-    }
 
     private void setupReturnButton() {
         returnButton.setText("<");
         returnButton.setBounds(10, 20, 20, 20);
         returnButton.setFocusable(false);
         returnButton.addActionListener(this);
+        this.add(returnButton);
     }
 
     private void setupLogoutButton() {
         logoutButton.setText("Logout");
-        logoutButton.setBounds(300, 20, 90, 20);
+        logoutButton.setBounds(1550, 20, 90, 20);
         logoutButton.setFocusable(false);
         logoutButton.addActionListener(this);
+        this.add(logoutButton);
     }
 
-    private void setupAllBooks() {
+    public void setupAllBooks() {
         List<Book> allBooksDb = bookController.getAllBooks();
         for (int i = 0; i < allBooksDb.size(); i++) {
             allBooks.add(new JLabel());

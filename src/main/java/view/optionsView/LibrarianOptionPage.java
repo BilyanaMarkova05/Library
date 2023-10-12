@@ -28,7 +28,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         setupComponents();
     }
 
-    private void setupComponents() {
+    public void setupComponents() {
         setupAddBookButton();
         setupRemoveBookButton();
         setupBookedBooksButton();

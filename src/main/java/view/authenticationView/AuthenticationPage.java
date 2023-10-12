@@ -49,7 +49,7 @@ public class AuthenticationPage extends BasePage implements ActionListener {
     }
 
     private void setupComponents(String buttonName) {
-        setupIcon();
+        setupIcon("icon.png",500, 150, 300, 200);
         setupTitleLabel();
         setupNameLabel();
         setupNameField();
@@ -57,19 +57,6 @@ public class AuthenticationPage extends BasePage implements ActionListener {
         setupPasswordField();
         setupAuthenticationButton(buttonName);
         setupReturnButton();
-    }
-
-    private void setupIcon() {
-        ImageIcon icon = new ImageIcon("icon.png");
-        Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        JLabel iconLabel = new JLabel(scaledIcon);
-
-        JPanel panel = new JPanel();
-        panel.setBounds(500, 150, 300, 205);
-        panel.setBackground(Color.ORANGE);
-        panel.add(iconLabel);
-        this.add(panel);
     }
 
     private void setupTitleLabel() {

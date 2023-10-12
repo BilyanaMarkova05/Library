@@ -12,17 +12,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AdminOptionPage extends BasePage implements ActionListener {
-    private final JButton logoutButton;
-    private final JButton returnButton;
+public class AdminOptionPage extends BaseOptionPage implements ActionListener {
     private final JButton usersButton;
     private final JButton registerLibrarianButton;
     private final BookController bookController;
     private final Authentication authentication;
 
     public AdminOptionPage(BookController bookController){
-        this.logoutButton = new JButton();
-        this.returnButton = new JButton();
+        super(bookController);
         this.usersButton = new JButton();
         this.registerLibrarianButton = new JButton();
         this.bookController = bookController;
@@ -30,9 +27,7 @@ public class AdminOptionPage extends BasePage implements ActionListener {
         setupComponents();
     }
 
-    private void setupComponents() {
-        setupLogoutButton();
-        setupReturnButton();
+    public void setupComponents() {
         setupUsersButton();
         setupRegisterLibrarianButton();
         setupFrame();
@@ -46,8 +41,6 @@ public class AdminOptionPage extends BasePage implements ActionListener {
     }
 
     private void setupFrame() {
-        this.add(logoutButton);
-        this.add(returnButton);
         this.add(usersButton);
         this.add(registerLibrarianButton);
         this.getContentPane().setBackground(Color.WHITE);
@@ -61,47 +54,18 @@ public class AdminOptionPage extends BasePage implements ActionListener {
         usersButton.addActionListener(this);
     }
 
-    private void setupReturnButton() {
-        returnButton.setText("return");
-        returnButton.setBounds(10, 20, 90, 20);
-        returnButton.setFocusable(false);
-        returnButton.addActionListener(this);
-    }
-
-    private void setupLogoutButton() {
-        logoutButton.setText("Logout");
-        logoutButton.setBounds(300, 20, 90, 20);
-        logoutButton.setFocusable(false);
-        logoutButton.addActionListener(this);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source.equals(returnButton)){
-            navigateToAuthenticationPage();
-        } else if (source.equals(logoutButton)){
+        if (source.equals(this.getReturnButton())){
+            navigateToPage(this, HomePage.getInstance());
+        } else if (source.equals(this.getLogoutButton())){
             authentication.logout();
-            navigateToAuthenticationPage();
+            navigateToPage(this, HomePage.getInstance());
         } else if (source.equals(usersButton)){
-            navigateToUserPage();
+            navigateToPage(this, new UserPage(bookController));
         } else if (source.equals(registerLibrarianButton)){
-            navigateToRegistrationLibrarianPage();
+            navigateToPage(this, new RegistrationLibrarianPage("Registration", "Sign in"));
         }
-    }
-
-    private void navigateToRegistrationLibrarianPage() {
-        this.dispose();
-        new RegistrationLibrarianPage("Registration", "Sign in");
-    }
-
-    private void navigateToUserPage() {
-        this.dispose();
-        new UserPage(bookController).setVisible(true);
-    }
-
-    private void navigateToAuthenticationPage() {
-        this.dispose();
-        HomePage.getInstance().setVisible(true);
     }
 }

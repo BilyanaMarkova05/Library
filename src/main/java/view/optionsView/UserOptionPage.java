@@ -2,7 +2,6 @@ package view.optionsView;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
-import model.userModel.User;
 import view.HomePage;
 import javax.swing.*;
 import java.awt.*;
@@ -11,129 +10,98 @@ import java.awt.event.ActionListener;
 
 
 public class UserOptionPage extends BaseOptionPage implements ActionListener {
+    private final JLabel returnBookLabel;
+    private final JLabel newBookLabel;
     private final JButton rentButton;
     private final JButton yourBooksButton;
-    private final JLabel bookNameLabel;
-    private final JTextField bookNameField;
     private final BookController bookController;
     private final JButton deleteProfileButton;
     private final Authentication authentication;
 
     public UserOptionPage(BookController bookController){
         super(bookController);
+        this.getContentPane().setBackground(Color.ORANGE);
+        this.setTitle("Options");
+        this.returnBookLabel = new JLabel();
+        this.newBookLabel = new JLabel();
         this.rentButton = new JButton();
         this.yourBooksButton = new JButton();
-        this.bookNameLabel = new JLabel();
-        this.bookNameField = new JTextField();
         this.bookController = bookController;
         this.deleteProfileButton = new JButton();
         this.authentication = AuthenticationImpl.getInstance();
         setupComponents();
-
     }
 
-    private void setupComponents() {
+    public void setupComponents() {
+        setupIcon("return book icon.png", 860, 330, 275, 255);
+        setupIcon("new book icon.png", 460, 300, 430, 300);
+        setupReturnBookLabel();
+        setupNewBookLabel();
         setupRentButton();
         setupYourBooksButton();
-        setupBookNameLabel();
-        setupBookNameField();
         setupDeleteProfileButton();
-        setupFrame();
     }
 
-    private void setupFrame() {
-        this.add(rentButton);
-        this.add(yourBooksButton);
-        this.add(bookNameLabel);
-        this.add(bookNameField);
-        this.add(deleteProfileButton);
-        this.getContentPane().setBackground(Color.ORANGE);
-        this.setTitle("Options");
+    private void setupReturnBookLabel() {
+        returnBookLabel.setText("Return book");
+        returnBookLabel.setBounds(950, 600, 100, 20);
+        Font biggerFont = new Font(returnBookLabel.getFont().getName(), Font.PLAIN, 16);
+        returnBookLabel.setFont(biggerFont);
+        this.add(returnBookLabel);
     }
 
-    private void setupBookNameField() {
-        bookNameField.setBounds(150, this.getY()+25, 130, 20);
-    }
-
-    private void setupBookNameLabel() {
-        bookNameLabel.setText("Book name: ");
-        bookNameLabel.setBounds(80, this.getY()+15, 80, 40);
+    private void setupNewBookLabel() {
+        newBookLabel.setText("New book");
+        newBookLabel.setBounds(630, 600, 100, 20);
+        Font biggerFont = new Font(newBookLabel.getFont().getName(), Font.PLAIN, 16);
+        newBookLabel.setFont(biggerFont);
+        this.add(newBookLabel);
     }
 
     private void setupYourBooksButton() {
         yourBooksButton.setText("Your books");
-        yourBooksButton.setBounds(160, this.getY()+90, 100, 20);
+        yourBooksButton.setBounds(850, 350, 250, 200);
         yourBooksButton.setFocusable(false);
         yourBooksButton.addActionListener(this);
+        this.add(yourBooksButton);
     }
 
     private void setupRentButton() {
         rentButton.setText("Rent");
-        rentButton.setBounds(160, this.getY()+60, 100, 20);
+        rentButton.setBounds(700, 350, 250, 200);
         rentButton.setFocusable(false);
         rentButton.addActionListener(this);
+        this.add(rentButton);
     }
 
     private void setupDeleteProfileButton() {
         deleteProfileButton.setText("Delete profile");
-        deleteProfileButton.setBounds(270, 45, 120, 20);
+        deleteProfileButton.setBounds(1550, 45, 120, 20);
         deleteProfileButton.setFocusable(false);
         deleteProfileButton.addActionListener(this);
+        this.add(deleteProfileButton);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-       if (source.equals(rentButton)){
-            bookController.rentBook(bookNameField.getText());
-            navigateToUserOptionPage();
+        if (source.equals(rentButton)){
+            navigateToPage(this, new RentBookPage(bookController));
         } else if (source.equals(yourBooksButton)) {
-            navigateToReturnPage();
+            navigateToPage(this, new ReturnBookPage(bookController));
         } else if (source.equals(deleteProfileButton)){
-            if (doesUserHaveBooks()){
+            if (bookController.doesUserHaveBooks(AuthenticationImpl.getLoggedUser().getName())){
                 JOptionPane.showMessageDialog(null,"This user have booked books. " +
                         "You cannot delete this account before the books are returned.");
             }else {
                 authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
-                navigateToAuthenticationPage();
+                navigateToPage(this, HomePage.getInstance());
             }
         } else if (source.equals(this.getLogoutButton())){
            authentication.logout();
-           navigateToHomePage();
+           navigateToPage(this, HomePage.getInstance());
        } else if(source.equals(this.getReturnButton())){
-           navigateToHomePage();
+           navigateToPage(this, HomePage.getInstance());
        }
-    }
-
-    private boolean doesUserHaveBooks(){
-        boolean doesUserHaveBooks = false;
-        for (User user:
-                authentication.getAllUsers("users")) {
-            if (user.getName().equals(AuthenticationImpl.getLoggedUser().getName())){
-                if (!(bookController.getBookedBooksFromUser(user).isEmpty())){
-                    doesUserHaveBooks = true;
-                }
-            }
-        }
-        return doesUserHaveBooks;
-    }
-
-    private void navigateToUserOptionPage() {
-        this.dispose();
-        new UserOptionPage(bookController);
-    }
-
-    private void navigateToAuthenticationPage() {
-        this.dispose();
-        HomePage.getInstance().setVisible(true);
-    }
-
-    private void navigateToReturnPage() {
-        this.dispose();
-        new ReturnBookPage(bookController).setVisible(true);
-    }
-    private void navigateToHomePage() {
-        this.dispose();
-        HomePage.getInstance().setVisible(true);
     }
 }

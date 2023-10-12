@@ -16,6 +16,10 @@ public class HomePage extends BasePage implements ActionListener {
     private final JButton loginButton;
     private final JButton librarianButton;
     private final JButton adminButton;
+    private int xButtons;
+    private int yButtons;
+    private int widthButtons;
+    private int heightButtons;
 
     public static HomePage getInstance() {
         if (instance == null) instance = new HomePage();
@@ -30,11 +34,15 @@ public class HomePage extends BasePage implements ActionListener {
         this.loginButton = new JButton();
         this.adminButton = new JButton();
         this.librarianButton = new JButton();
+        this.xButtons = 700;
+        this.yButtons = 480;
+        this.widthButtons = 300;
+        this.heightButtons = 50;
         setupComponents();
     }
 
     private void setupComponents() {
-        setupIcon();
+        setupIcon("icon.png",700, 30, 300, 200);
         setupRegistrationButton();
         setupLoginButton();
         setupLibrarianButton();
@@ -42,22 +50,9 @@ public class HomePage extends BasePage implements ActionListener {
         setupTitleLabel();
     }
 
-    private void setupIcon() {
-        ImageIcon icon = new ImageIcon("icon.png");
-        Image scaledImage = icon.getImage().getScaledInstance(300, 200, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        JLabel iconLabel = new JLabel(scaledIcon);
-
-        JPanel panel = new JPanel();
-        panel.setBounds(700, 30, 300, 205);
-        panel.setBackground(Color.ORANGE);
-        panel.add(iconLabel);
-        this.add(panel);
-    }
-
     private void setupTitleLabel() {
         JLabel titleLabel = new JLabel("<html>Library Management<br><center> System</html>");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 90));
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 60));
 
         JPanel panel = new JPanel();
         panel.setBounds(400, 250, 900, 215);
@@ -68,14 +63,14 @@ public class HomePage extends BasePage implements ActionListener {
 
     private void setupRegistrationButton() {
         registrationButton.setText("Sign in");
-        registrationButton.setBounds(750, 520, 200, 40);
+        registrationButton.setBounds(xButtons, yButtons, widthButtons, heightButtons);
         this.add(registrationButton);
         registrationButton.addActionListener(this);
     }
 
     private void setupLoginButton() {
         loginButton.setText("Login");
-        loginButton.setBounds(750, 570, 200, 40);
+        loginButton.setBounds(xButtons, yButtons+60, widthButtons, heightButtons);
         add(loginButton);
         loginButton.addActionListener(this);
     }
@@ -83,13 +78,13 @@ public class HomePage extends BasePage implements ActionListener {
 
     private void setupLibrarianButton() {
         librarianButton.setText("Librarian");
-        librarianButton.setBounds(750, 620, 200, 40);
+        librarianButton.setBounds(xButtons, yButtons+120, widthButtons, heightButtons);
         add(librarianButton);
         librarianButton.addActionListener(this);
     }
     private void setupAdminButton() {
         adminButton.setText("Admin");
-        adminButton.setBounds(750, 670, 200, 40);
+        adminButton.setBounds(xButtons, yButtons + 180, widthButtons, heightButtons);
         add(adminButton);
         adminButton.addActionListener(this);
     }
