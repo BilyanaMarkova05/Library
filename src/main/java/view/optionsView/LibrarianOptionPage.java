@@ -18,7 +18,6 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
     private final BookController bookController;
 
     public LibrarianOptionPage(BookController bookController){
-        super(bookController);
         this.addBookButton = new JButton();
         this.removeBookButton = new JButton();
         this.bookedBooksButton = new JButton();

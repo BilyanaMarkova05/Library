@@ -17,9 +17,7 @@ public interface BookController {
 
     List<Book> getAllBooks();
 
-    List<String> getBookedBooksFromLoggedUser();
-
-    List<String> getBookedBooksFromUser(User user);
+    List<Book> getBookedBooksByUser(User user);
 
     List<String> getBookedBooks();
 

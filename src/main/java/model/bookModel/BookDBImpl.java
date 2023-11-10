@@ -1,6 +1,5 @@
 package model.bookModel;
 
-import model.ConnectionDB;
 import model.userModel.User;
 
 import java.sql.*;
@@ -59,15 +58,29 @@ public class BookDBImpl implements BookDB{
         return allBooks;
     }
 
-    public List<String> getBookedBooksFromUser(User user) {
-        List<String> bookedBooks = new ArrayList<>();
+    public List<String> getBookedBooksNamesByUser(User user) {
+        List<String> bookedBooksNames = new ArrayList<>();
         try {
             ResultSet rs=statement.executeQuery("select * from bookedBooks where userName = '" + user.getName() + "'");
             while(rs.next()) {
-                bookedBooks.add(rs.getString(2));
+                bookedBooksNames.add(rs.getString(2));
             }
         }catch (Exception e){
             e.printStackTrace();
+        }
+
+        return bookedBooksNames;
+    }
+
+    public List<Book> getBookedBooksByUser(User user) {
+        List<Book> bookedBooks = new ArrayList<>();
+        for (int i = 0; i < getBookedBooksNamesByUser(user).size(); i++) {
+            for (int j = 0; j < getAllBooks().size(); j++) {
+                if (getBookedBooksNamesByUser(user).get(i).equals(getAllBooks().get(j).getName())) {
+                    bookedBooks.add(new Book(getAllBooks().get(j).getName(),
+                            getAllBooks().get(j).getBookStatus(), getAllBooks().get(j).getGenre()));
+                }
+            }
         }
         return bookedBooks;
     }

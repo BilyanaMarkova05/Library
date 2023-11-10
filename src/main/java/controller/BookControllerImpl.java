@@ -21,40 +21,28 @@ public class BookControllerImpl implements BookController{
 
     public void rentBook(String bookName) {
         List<Book> allBooks = bookDB.getAllBooks();
-        boolean doesBookExist = false;
         for (Book book : allBooks) {
-            if (book.getName().equals(bookName) &&
+            if (book.getName().equals(bookName) && book.getBookStatus() == BookStatus.BOOKED){
+                JOptionPane.showMessageDialog(null, bookName + " is already booked");
+            }else if (book.getName().equals(bookName) &&
                     book.getBookStatus() == BookStatus.FREE) {
                 bookDB.updateBookStatus(bookName, "BOOKED");
                 bookDB.insertBookedBooksTable(loggedUser.getName(), bookName);
-                JOptionPane.showMessageDialog(null, bookName + " is rented");
-                doesBookExist = true;
             }
-        }
-
-        if(!doesBookExist){
-            JOptionPane.showMessageDialog(null, bookName + " does not exist. Please try again.");
         }
     }
 
     public void returnBook(String bookName){
-        boolean doesBookExist = false;
-        for (String bookedBook : bookDB.getBookedBooksFromUser(loggedUser)) {
-            if (bookName.equals(bookedBook)) {
+        for (Book bookedBook : bookDB.getBookedBooksByUser(loggedUser)) {
+            if (bookName.equals(bookedBook.getName())) {
                 for (int i = 0; i < bookDB.getAllBooks().size(); i++) {
                     if (bookDB.getAllBooks().get(i).getName().equals(bookName) &&
                             bookDB.getAllBooks().get(i).getBookStatus() == BookStatus.BOOKED) {
                         bookDB.updateBookStatus(bookName, "FREE");
                         bookDB.deleteFromBookedBooks(loggedUser.getName(), bookName);
-                        JOptionPane.showMessageDialog(null, bookName + " is returned");
-                        doesBookExist = true;
                     }
                 }
             }
-        }
-
-        if (!doesBookExist){
-            JOptionPane.showMessageDialog(null, bookName + " does not exist. Please try again.");
         }
     }
 
@@ -78,13 +66,9 @@ public class BookControllerImpl implements BookController{
         return bookDB.getAllBooks();
     }
 
-    public List<String> getBookedBooksFromLoggedUser(){
-        return bookDB.getBookedBooksFromUser(loggedUser);
-    }
-
     @Override
-    public List<String> getBookedBooksFromUser(User user) {
-        return bookDB.getBookedBooksFromUser(user);
+    public List<Book> getBookedBooksByUser(User user) {
+        return bookDB.getBookedBooksByUser(user);
     }
 
     @Override
@@ -98,7 +82,7 @@ public class BookControllerImpl implements BookController{
         for (User user :
                 authentication.getAllUsers("users")) {
             if (user.getName().equals(username)) {
-                if (!(getBookedBooksFromUser(user).isEmpty())) {
+                if (!(getBookedBooksByUser(user).isEmpty())) {
                     doesUserHaveBooks = true;
                 }
             }

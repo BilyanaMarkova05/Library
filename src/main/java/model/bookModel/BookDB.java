@@ -10,7 +10,9 @@ public interface BookDB {
 
     List<Book> getAllBooks();
 
-    List<String> getBookedBooksFromUser(User user);
+    List<String> getBookedBooksNamesByUser(User user);
+
+    List<Book> getBookedBooksByUser(User user);
 
     List<String> getBookedBooks();
 
