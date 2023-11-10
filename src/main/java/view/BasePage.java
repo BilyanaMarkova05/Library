@@ -28,4 +28,15 @@ public class BasePage extends JFrame {
         panel.add(iconLabel);
         this.add(panel);
     }
+
+    public void setupTitleLabel(String text, int size, int x, int y, int width, int height) {
+        JLabel titleLabel = new JLabel(text);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, size));
+
+        JPanel panel = new JPanel();
+        panel.setBounds(x, y, width, height);
+        panel.add(titleLabel);
+        panel.setBackground(Color.ORANGE);
+        this.add(panel);
+    }
 }

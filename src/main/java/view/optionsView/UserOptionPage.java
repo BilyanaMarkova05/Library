@@ -20,6 +20,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
 
     public UserOptionPage(BookController bookController){
         super(bookController);
+        setLayout(null);
         this.getContentPane().setBackground(Color.ORANGE);
         this.setTitle("Options");
         this.returnBookLabel = new JLabel();
@@ -33,6 +34,8 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
     }
 
     public void setupComponents() {
+        setupIcon("icon.png", 590,140, 100, 60 );
+        setupTitleLabel("Library Management System", 30, 650, 150, 500, 50);
         setupIcon("return book icon.png", 860, 330, 275, 255);
         setupIcon("new book icon.png", 460, 300, 430, 300);
         setupReturnBookLabel();
@@ -68,7 +71,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
 
     private void setupRentButton() {
         rentButton.setText("Rent");
-        rentButton.setBounds(700, 350, 250, 200);
+        rentButton.setBounds(550, 300, 250, 200);
         rentButton.setFocusable(false);
         rentButton.addActionListener(this);
         this.add(rentButton);

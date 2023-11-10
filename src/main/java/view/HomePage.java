@@ -16,10 +16,10 @@ public class HomePage extends BasePage implements ActionListener {
     private final JButton loginButton;
     private final JButton librarianButton;
     private final JButton adminButton;
-    private int xButtons;
-    private int yButtons;
-    private int widthButtons;
-    private int heightButtons;
+    private final int xButtons;
+    private final int yButtons;
+    private final int widthButtons;
+    private final int heightButtons;
 
     public static HomePage getInstance() {
         if (instance == null) instance = new HomePage();
@@ -47,18 +47,8 @@ public class HomePage extends BasePage implements ActionListener {
         setupLoginButton();
         setupLibrarianButton();
         setupAdminButton();
-        setupTitleLabel();
-    }
-
-    private void setupTitleLabel() {
-        JLabel titleLabel = new JLabel("<html>Library Management<br><center> System</html>");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 60));
-
-        JPanel panel = new JPanel();
-        panel.setBounds(400, 250, 900, 215);
-        panel.add(titleLabel);
-        panel.setBackground(Color.ORANGE);
-        this.add(panel);
+        setupTitleLabel("<html>Library Management<br><center> System</html>",
+                60, 400, 250, 900, 215);
     }
 
     private void setupRegistrationButton() {
@@ -74,7 +64,6 @@ public class HomePage extends BasePage implements ActionListener {
         add(loginButton);
         loginButton.addActionListener(this);
     }
-
 
     private void setupLibrarianButton() {
         librarianButton.setText("Librarian");

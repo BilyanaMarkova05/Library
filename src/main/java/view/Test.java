@@ -6,28 +6,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Test extends BasePage implements ActionListener {
-    private JButton button;
-    private JLabel title;
     public Test() {
+
+        JPanel mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(200, 200, 200, 200);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
+        JPanel scrollablePanel = new JPanel();
+        scrollablePanel.setLayout(new BoxLayout(scrollablePanel, BoxLayout.Y_AXIS));
+        for (int i = 0; i < 100; i++) {
+            scrollablePanel.add(new JLabel("Label " + i));
+        }
+
+        JScrollPane scrollPane = new JScrollPane(scrollablePanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        mainPanel.add(scrollPane, gbc);
+
+        this.add(mainPanel);
+        //setLayout(null);
         this.getContentPane().setBackground(Color.ORANGE);
-        this.button = new JButton();
-        this.title = new JLabel();
-        setupButton();
-        setupLabel();
-    }
-
-    private void setupLabel() {
-        setLayout(null);
-        title.setText("text");
-        title.setBounds(100,100,100,100);
-        add(title);
-    }
-
-    private void setupButton() {
-        this.setLayout(null);
-        button.setBounds(200, 50, 120, 30);
-        button.setText("button");
-        this.add(button);
     }
 
     @Override
@@ -35,13 +38,5 @@ public class Test extends BasePage implements ActionListener {
 
     }
 
-//    private void alignButtonsInMainPanel(JPanel buttonPanel, JPanel scoreBtnPanel) {
-//        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-//        mainPanel.add(Box.createVerticalGlue());
-//        mainPanel.add(buttonPanel);
-//        mainPanel.add(Box.createVerticalStrut(0));
-//        scoreBtnPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        mainPanel.add(scoreBtnPanel);
-//        mainPanel.add(Box.createVerticalGlue());
-//    }
+
 }
