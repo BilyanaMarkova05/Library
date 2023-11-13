@@ -19,6 +19,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
     private final Authentication authentication;
 
     public UserOptionPage(BookController bookController){
+        super(bookController);
         setLayout(null);
         this.getContentPane().setBackground(Color.ORANGE);
         this.setTitle("Options");

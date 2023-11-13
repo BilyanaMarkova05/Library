@@ -19,6 +19,7 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
     private final List<JButton> buttons;
 
     public RentBookPage(BookController bookController) {
+        super(bookController);
         this.authentication = AuthenticationImpl.getInstance();
         this.bookController = bookController;
         this.deleteProfileButton = new JButton();
@@ -62,6 +63,7 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
         for (int i = 0; i < buttons.size(); i++) {
             if (source.equals(buttons.get(i))){
              bookController.rentBook(bookController.getAllBooks().get(i).getName());
+             navigateToPage(this, new RentBookPage(bookController));
             }
         }
         if (source.equals(deleteProfileButton)) {

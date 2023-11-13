@@ -29,7 +29,6 @@ public class Test extends BasePage implements ActionListener {
         mainPanel.add(scrollPane, gbc);
 
         this.add(mainPanel);
-        //setLayout(null);
         this.getContentPane().setBackground(Color.ORANGE);
     }
 

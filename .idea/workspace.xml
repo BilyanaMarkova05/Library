@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="add RentBookPage and change UserOptionPage design">
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="return book design">
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
@@ -15,17 +15,23 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/BasePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/RentBookPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/RentBookPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/ReturnBookPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/ReturnBookPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserOptionPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/AdminOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/AdminOptionPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/RentBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/RentBookPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/ReturnBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/ReturnBookPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/UserOptionPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +188,31 @@
       <option name="project" value="LOCAL" />
       <updated>1697127614594</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Rent book design">
+      <option name="closed" value="true" />
+      <created>1699595342581</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699595342581</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Rent book design">
+      <option name="closed" value="true" />
+      <created>1699595388509</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699595388509</updated>
+    </task>
+    <task id="LOCAL-00011" summary="return book design">
+      <option name="closed" value="true" />
+      <created>1699610491281</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699610491282</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +236,9 @@
     <MESSAGE value="Clear UI code and change HomePage" />
     <MESSAGE value="Edit authentication view" />
     <MESSAGE value="add RentBookPage and change UserOptionPage design" />
-    <option name="LAST_COMMIT_MESSAGE" value="add RentBookPage and change UserOptionPage design" />
+    <MESSAGE value="Rent book design" />
+    <MESSAGE value="return book design" />
+    <option name="LAST_COMMIT_MESSAGE" value="return book design" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

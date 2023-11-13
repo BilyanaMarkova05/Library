@@ -19,6 +19,7 @@ public class AdminOptionPage extends BaseOptionPage implements ActionListener {
     private final Authentication authentication;
 
     public AdminOptionPage(BookController bookController){
+        super(bookController);
         this.usersButton = new JButton();
         this.registerLibrarianButton = new JButton();
         this.bookController = bookController;

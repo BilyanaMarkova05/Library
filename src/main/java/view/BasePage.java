@@ -29,6 +29,18 @@ public class BasePage extends JFrame {
         this.add(panel);
     }
 
+    public void setupIcon(String filename, int x, int y, int width, int height, JPanel jpanel) {
+        ImageIcon icon = new ImageIcon(filename);
+        Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel iconLabel = new JLabel(scaledIcon);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(x, y, width, height);
+        panel.add(iconLabel);
+        jpanel.add(panel);
+    }
+
     public void setupTitleLabel(String text, int size, int x, int y, int width, int height) {
         JLabel titleLabel = new JLabel(text);
         titleLabel.setFont(new Font("Arial", Font.BOLD, size));
