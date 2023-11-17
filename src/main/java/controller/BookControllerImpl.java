@@ -59,7 +59,13 @@ public class BookControllerImpl implements BookController{
 
     @Override
     public void removeBook(String bookName) {
-        bookDB.removeBook(bookName);
+        for (Book book: bookDB.getAllBooks()) {
+            if (book.getName().equals(bookName) && book.getBookStatus() == BookStatus.FREE){
+                bookDB.removeBook(bookName);
+            } else if(book.getName().equals(bookName) && book.getBookStatus() == BookStatus.BOOKED){
+                JOptionPane.showMessageDialog(null, "This book is booked. You can't remove it");
+            }
+        }
     }
 
     public List<Book> getAllBooks(){

@@ -19,6 +19,9 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
 
     public LibrarianOptionPage(BookController bookController){
         super(bookController);
+        setLayout(null);
+        this.setTitle("Options");
+        this.getContentPane().setBackground(Color.ORANGE);
         this.addBookButton = new JButton();
         this.removeBookButton = new JButton();
         this.bookedBooksButton = new JButton();
@@ -44,8 +47,6 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         this.add(bookedBooksButton);
         this.add(bookNameLabel);
         this.add(bookNameField);
-        this.getContentPane().setBackground(Color.WHITE);
-        this.setTitle("Options");
     }
 
     private void setupBookNameField() {

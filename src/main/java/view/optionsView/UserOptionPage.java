@@ -46,7 +46,7 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
     }
 
     private void setupReturnBookLabel() {
-        returnBookLabel.setText("Return book");
+        returnBookLabel.setText("Your books");
         returnBookLabel.setBounds(950, 600, 100, 20);
         Font biggerFont = new Font(returnBookLabel.getFont().getName(), Font.PLAIN, 16);
         returnBookLabel.setFont(biggerFont);

@@ -14,7 +14,6 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
     private final Authentication authentication;
     private final JButton deleteProfileButton;
     private final BookController bookController;
-
     private final List<JLabel> allBooks;
     private final List<JButton> buttons;
 
@@ -31,7 +30,7 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
     private void setupComponents() {
         setupIcon("icon.png", 590,80, 100, 60 );
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
-        setupDeleteProfileButton();
+        setupDeleteProfileButton(deleteProfileButton);
         setupButtonArray();
         setupAllBooksList(bookController.getAllBooks(), buttons, allBooks);
     }
@@ -48,14 +47,6 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
         buttons.get(i).setSize(40, 20);
         buttons.get(i).setFocusable(false);
         buttons.get(i).addActionListener(this);
-    }
-
-    private void setupDeleteProfileButton() {
-        deleteProfileButton.setText("Delete profile");
-        deleteProfileButton.setBounds(1550, 45, 120, 20);
-        deleteProfileButton.setFocusable(false);
-        deleteProfileButton.addActionListener(this);
-        this.add(deleteProfileButton);
     }
 
     public void actionPerformed(ActionEvent e) {

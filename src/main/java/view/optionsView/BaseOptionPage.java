@@ -57,6 +57,14 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         this.add(logoutButton);
     }
 
+    public void setupDeleteProfileButton(JButton deleteProfileButton) {
+        deleteProfileButton.setText("Delete profile");
+        deleteProfileButton.setBounds(1550, 45, 120, 20);
+        deleteProfileButton.setFocusable(false);
+        deleteProfileButton.addActionListener(this);
+        this.add(deleteProfileButton);
+    }
+
     public void setupAllBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels) {
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(Color.ORANGE);
@@ -75,7 +83,7 @@ public class BaseOptionPage extends BasePage implements ActionListener {
 
     private static GridBagConstraints getGridBagConstraints() {
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(250, 600, 150, 600);
+        gbc.insets = new Insets(200, 600, 200, 600);
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
@@ -95,7 +103,9 @@ public class BaseOptionPage extends BasePage implements ActionListener {
                 setupIcon("red cross icon.png", 10, 10, 15, 15, linePanel);
             }
 
+            if(buttons != null){
             linePanel.add(buttons.get(i));
+            }
             scrollablePanel.add(linePanel);
         }
         return scrollablePanel;
@@ -103,7 +113,7 @@ public class BaseOptionPage extends BasePage implements ActionListener {
 
     private void setupAllBooksLabelArray(List<Book> bookList, List<JLabel> bookLabels){
         for (int i = 0; i < bookList.size(); i++) {
-            bookLabels.add(new JLabel(bookList.get(i).getName()));
+            bookLabels.add(new JLabel(bookList.get(i).getName() + " - " + bookList.get(i).getGenre()));
             bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }

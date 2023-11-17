@@ -1,8 +1,5 @@
-import view.HomePage;
-import view.Test;
 
-import javax.swing.*;
-import java.awt.*;
+import view.HomePage;
 
 public class Main {
     public static void main(String[] args) {
