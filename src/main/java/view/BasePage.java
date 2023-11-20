@@ -10,7 +10,11 @@ public class BasePage extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
-
+    public BasePage(int x, int y, int width, int height){
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(x, y, width, height);
+        setVisible(true);
+    }
     public void navigateToPage(JFrame currentFrame, JFrame jFrame){
         currentFrame.dispose();
         jFrame.setVisible(true);

@@ -27,6 +27,14 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         setupReturnButton();
     }
 
+    public BaseOptionPage(BookController bookController, int x, int y, int width, int height) {
+        super(x, y, width, height);
+        this.bookController = bookController;
+        this.logoutButton = new JButton();
+        this.returnButton = new JButton();
+        this.y = 50;
+    }
+
     public JButton getLogoutButton() {
         return logoutButton;
     }
@@ -65,10 +73,11 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         this.add(deleteProfileButton);
     }
 
-    public void setupAllBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels) {
+    //setupAllBooks
+    public void setupBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels) {
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(Color.ORANGE);
-        GridBagConstraints gbc = getGridBagConstraints();
+        GridBagConstraints gbc = getGridBagConstraints(200, 600, 200, 600);
 
         JPanel scrollablePanel = getScrollablePanel(bookList, buttons, bookLabels);
 
@@ -81,9 +90,10 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         this.add(mainPanel);
     }
 
-    private static GridBagConstraints getGridBagConstraints() {
+
+    private static GridBagConstraints getGridBagConstraints(int top, int left, int bottom, int right) {
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(200, 600, 200, 600);
+        gbc.insets = new Insets(top, left, bottom, right);
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
@@ -110,10 +120,45 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         }
         return scrollablePanel;
     }
-
     private void setupAllBooksLabelArray(List<Book> bookList, List<JLabel> bookLabels){
         for (int i = 0; i < bookList.size(); i++) {
             bookLabels.add(new JLabel(bookList.get(i).getName() + " - " + bookList.get(i).getGenre()));
+            bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
+        }
+    }
+
+
+    //setupBookedBooks
+    public JPanel setupBooksList(List<String> bookList, List<JLabel> bookLabels, int top,
+                               int left, int bottom, int right) {
+        JPanel mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = getGridBagConstraints(top, left, bottom, right);
+
+        JPanel scrollablePanel = getScrollablePanel(bookList, bookLabels);
+
+        JScrollPane scrollPane = new JScrollPane(scrollablePanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        mainPanel.add(scrollPane, gbc);
+        return mainPanel;
+    }
+    private JPanel getScrollablePanel(List<String> bookList, List<JLabel> bookLabels) {
+        JPanel scrollablePanel = new JPanel();
+        scrollablePanel.setBackground(Color.getHSBColor(54, 20, 197));
+        scrollablePanel.setLayout(new BoxLayout(scrollablePanel, BoxLayout.Y_AXIS));
+        setupBookedBooksLabelArray(bookList, bookLabels);
+        for (int i = 0; i < bookList.size(); i++) {
+            scrollablePanel.add(bookLabels.get(i));
+        }
+        return scrollablePanel;
+    }
+
+
+    private void setupBookedBooksLabelArray(List<String> bookList, List<JLabel> bookLabels){
+        for (int i = 0; i < bookList.size(); i++) {
+            bookLabels.add(new JLabel("                          " + bookList.get(i)));
             bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }

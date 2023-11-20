@@ -1,117 +1,105 @@
 package view.optionsView;
+
+import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.HomePage;
+import view.authenticationView.LoginLibrarianPage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibrarianOptionPage extends BaseOptionPage implements ActionListener {
+    private static LibrarianOptionPage instance;
+    private final Authentication authentication;
+    private final List<JButton> buttons;
+    private final List<JLabel> allBooks;
     private final JButton addBookButton;
-    private final JButton removeBookButton;
     private final JButton bookedBooksButton;
-    private final JLabel bookNameLabel;
-    private final JTextField bookNameField;
     private final BookController bookController;
-
-    public LibrarianOptionPage(BookController bookController){
+    public LibrarianOptionPage(BookController bookController) {
         super(bookController);
-        setLayout(null);
         this.setTitle("Options");
         this.getContentPane().setBackground(Color.ORANGE);
-        this.addBookButton = new JButton();
-        this.removeBookButton = new JButton();
-        this.bookedBooksButton = new JButton();
-        this.bookNameLabel = new JLabel();
-        this.bookNameField = new JTextField();
+        this.authentication = AuthenticationImpl.getInstance();
+        this.buttons = new ArrayList<>();
         this.bookController = bookController;
+        this.allBooks = new ArrayList<>();
+        this.addBookButton = new JButton();
+        this.bookedBooksButton = new JButton();
         setupComponents();
     }
 
-    public void setupComponents() {
+    public static LibrarianOptionPage getInstance(BookController bookController) {
+        if (instance == null) {
+            instance = new LibrarianOptionPage(bookController);
+        }
+        return instance;
+    }
+
+    private void setupComponents() {
+        setupIcon("icon.png", 590,80, 100, 60 );
+        setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
+        setupIcon("booked books icon.png",1550, 25, 100, 90 );
+        setupTitleLabel("Booked books", 13, 1550, 110, 90, 20);
+        setupButtonArray();
         setupAddBookButton();
-        setupRemoveBookButton();
-        setupBookedBooksButton();
-        setupBookNameLabel();
-        setupBookNameField();
-        setupFrame();
+        setupBookedBookButton();
+        setupBooksList(bookController.getAllBooks(), buttons, allBooks);
     }
 
-
-    private void setupFrame() {
-        this.add(addBookButton);
-        this.add(removeBookButton);
-        this.add(bookedBooksButton);
-        this.add(bookNameLabel);
-        this.add(bookNameField);
-    }
-
-    private void setupBookNameField() {
-        bookNameField.setBounds(150, this.getY()+25, 130, 20);
-    }
-
-    private void setupBookNameLabel() {
-        bookNameLabel.setText("Book name: ");
-        bookNameLabel.setBounds(80, this.getY()+15, 80, 40);
-    }
-
-    private void setupBookedBooksButton() {
+    private void setupBookedBookButton() {
         bookedBooksButton.setText("Booked books");
-        bookedBooksButton.setBounds(145, this.getY()+120, 130, 20);
+        bookedBooksButton.setBounds(1570, 40, 50, 50);
         bookedBooksButton.setFocusable(false);
         bookedBooksButton.addActionListener(this);
-    }
-
-    private void setupRemoveBookButton() {
-        removeBookButton.setText("Remove book");
-        removeBookButton.setBounds(145, this.getY()+90, 130, 20);
-        removeBookButton.setFocusable(false);
-        removeBookButton.addActionListener(this);
+        this.add(bookedBooksButton);
     }
 
     private void setupAddBookButton() {
         addBookButton.setText("Add book");
-        addBookButton.setBounds(160, this.getY()+60, 100, 20);
+        addBookButton.setBounds(750, 800, 200, 50);
         addBookButton.setFocusable(false);
         addBookButton.addActionListener(this);
+        this.add(addBookButton);
+    }
+
+    private void setupButtonArray(){
+        for (int i = 0; i < bookController.getAllBooks().size(); i++) {
+            buttons.add(new JButton());
+            setupButton(i);
+        }
+    }
+
+    private void setupButton(int i) {
+        buttons.get(i).setText("Remove");
+        buttons.get(i).setSize(40, 20);
+        buttons.get(i).setFocusable(false);
+        buttons.get(i).addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source.equals(addBookButton)) {
-            Scanner scanner = new Scanner(System.in);
-            String genre = scanner.nextLine();
-            bookController.addBook(bookNameField.getText(), "FREE", genre);
-            navigateToLibrarianOptionPage();
-        } else if (source.equals(removeBookButton)) {
-            bookController.removeBook(bookNameField.getText());
-            navigateToLibrarianOptionPage();
+        if (source.equals(getReturnButton())){
+            navigateToPage(this, new LoginLibrarianPage());
+        } else if (source.equals(getLogoutButton())) {
+            authentication.logout();
+            navigateToPage(this, HomePage.getInstance());
+        } else if (source.equals(addBookButton)){
+            new AddBookPage(bookController);
         } else if (source.equals(bookedBooksButton)) {
-            navigateToBookedBooksPage();
-        } else if(source.equals(this.getLogoutButton())){
-            navigateToHomePage();
-            AuthenticationImpl.getInstance().logout();
-        } else if(source.equals(this.getReturnButton())){
-            navigateToHomePage();
+            new BookedBooksPage(bookController);
         }
-    }
-
-    private void navigateToHomePage() {
-        this.dispose();
-        HomePage.getInstance().setVisible(true);
-    }
-
-    private void navigateToBookedBooksPage() {
-        this.dispose();
-        new BookedBooksPage(bookController).setVisible(true);
-    }
-
-    private void navigateToLibrarianOptionPage() {
-        this.dispose();
-        new LibrarianOptionPage(bookController).setVisible(true);
+        for (int i = 0; i < buttons.size(); i++) {
+            if (source.equals(buttons.get(i))) {
+                bookController.removeBook(bookController.getAllBooks().get(i).getName());
+                navigateToPage(this, new LibrarianOptionPage(bookController));
+            }
+        }
     }
 }

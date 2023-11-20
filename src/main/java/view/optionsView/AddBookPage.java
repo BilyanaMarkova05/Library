@@ -79,7 +79,7 @@ public class AddBookPage extends JFrame implements ActionListener {
         if (source.equals(addBookButton)){
             bookController.addBook(bookTitleField.getText(), "FREE", bookGenreTextField.getText());
             this.dispose();
-            new LibOptionPage(bookController);
+            new LibrarianOptionPage(bookController);
         }
     }
 }

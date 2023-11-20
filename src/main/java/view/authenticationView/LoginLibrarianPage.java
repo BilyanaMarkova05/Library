@@ -6,7 +6,7 @@ import controller.BookController;
 import controller.BookControllerImpl;
 import model.userModel.UserStatus;
 import view.HomePage;
-import view.optionsView.LibOptionPage;
+import view.optionsView.LibrarianOptionPage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -37,7 +37,7 @@ public class LoginLibrarianPage extends AuthenticationPage{
                 this.showMessage(this, "Login successful", Color.GREEN, 200);
                 BookController bookController = new BookControllerImpl();
                 //this.navigateToPage(this, new LibrarianOptionPage(bookController));
-                this.navigateToPage(this, new LibOptionPage(bookController));
+                this.navigateToPage(this, new LibrarianOptionPage(bookController));
             }
         }
     }

@@ -32,7 +32,7 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
         setupDeleteProfileButton(deleteProfileButton);
         setupButtonArray();
-        setupAllBooksList(bookController.getAllBooks(), buttons, allBooks);
+        setupBooksList(bookController.getAllBooks(), buttons, allBooks);
     }
 
     private void setupButtonArray(){
