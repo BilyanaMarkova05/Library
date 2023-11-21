@@ -1,6 +1,5 @@
 package view.optionsView;
 
-import controller.BookController;
 import model.bookModel.Book;
 import model.bookModel.BookStatus;
 import view.BasePage;
@@ -14,12 +13,9 @@ import java.util.List;
 public class BaseOptionPage extends BasePage implements ActionListener {
     private final JButton logoutButton;
     private final JButton returnButton;
-
-    private BookController bookController;
     private final int y;
-    public BaseOptionPage(BookController bookController) {
+    public BaseOptionPage() {
         this.setTitle("Options");
-        this.bookController = bookController;
         this.logoutButton = new JButton();
         this.returnButton = new JButton();
         this.y = 50;
@@ -27,9 +23,8 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         setupReturnButton();
     }
 
-    public BaseOptionPage(BookController bookController, int x, int y, int width, int height) {
+    public BaseOptionPage(int x, int y, int width, int height) {
         super(x, y, width, height);
-        this.bookController = bookController;
         this.logoutButton = new JButton();
         this.returnButton = new JButton();
         this.y = 50;
@@ -158,7 +153,7 @@ public class BaseOptionPage extends BasePage implements ActionListener {
 
     private void setupBookedBooksLabelArray(List<String> bookList, List<JLabel> bookLabels){
         for (int i = 0; i < bookList.size(); i++) {
-            bookLabels.add(new JLabel("                          " + bookList.get(i)));
+            bookLabels.add(new JLabel("                       " + bookList.get(i)));
             bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }

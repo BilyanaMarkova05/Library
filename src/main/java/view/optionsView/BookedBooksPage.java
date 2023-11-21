@@ -3,7 +3,6 @@ package view.optionsView;
 import controller.BookController;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -11,13 +10,13 @@ import java.util.List;
 
 
 public class BookedBooksPage extends BaseOptionPage implements ActionListener {
-    private List<JLabel> bookedBooks;
-    private JButton closeButton;
+    private final JButton closeButton;
+
     public BookedBooksPage(BookController bookController){
-        super(bookController, 605, 300, 500, 500);
+        super(605, 300, 500, 500);
         this.closeButton = new JButton();
-        this.bookedBooks = new ArrayList<>();
         setupCloseButton();
+        List<JLabel> bookedBooks = new ArrayList<>();
         this.add(setupBooksList(bookController.getBookedBooks(), bookedBooks, 23, 23,
                 23, 23));
     }

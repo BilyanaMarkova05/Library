@@ -30,6 +30,7 @@ public class UserPage extends JFrame implements ActionListener {
     private final BookController bookController;
 
     public UserPage(BookController bookController){
+        setLayout(null);
         this.returnButton = new JButton();
         this.logoutButton = new JButton();
         this.users = new ArrayList<>();

@@ -19,7 +19,6 @@ public class ReturnBookPage extends BaseOptionPage implements ActionListener {
     private final List<JButton> buttons;
 
     public ReturnBookPage(BookController bookController){
-        super(bookController);
         this.bookController = bookController;
         this.authentication = AuthenticationImpl.getInstance();
         this.deleteProfileButton = new JButton();

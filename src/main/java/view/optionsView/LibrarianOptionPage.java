@@ -22,7 +22,6 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
     private final JButton bookedBooksButton;
     private final BookController bookController;
     public LibrarianOptionPage(BookController bookController) {
-        super(bookController);
         this.setTitle("Options");
         this.getContentPane().setBackground(Color.ORANGE);
         this.authentication = AuthenticationImpl.getInstance();
