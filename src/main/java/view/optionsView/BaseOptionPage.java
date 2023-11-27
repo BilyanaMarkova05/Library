@@ -2,6 +2,7 @@ package view.optionsView;
 
 import model.bookModel.Book;
 import model.bookModel.BookStatus;
+import model.userModel.User;
 import view.BasePage;
 
 import javax.swing.*;
@@ -157,6 +158,50 @@ public class BaseOptionPage extends BasePage implements ActionListener {
             bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }
+
+    //setup users
+
+    public JPanel setupUsersList(List<User> userList, List<JButton> buttons, List<JLabel> labels,
+                               int top, int left, int bottom, int right) {
+        JPanel mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.setBackground(Color.ORANGE);
+        GridBagConstraints gbc = getGridBagConstraints(top, left, bottom, right);
+
+        JPanel scrollablePanel = getUsersScrollablePanel(userList, buttons, labels);
+
+        JScrollPane scrollPane = new JScrollPane(scrollablePanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        mainPanel.add(scrollPane, gbc);
+        //this.add(mainPanel);
+        return mainPanel;
+    }
+
+    private JPanel getUsersScrollablePanel(List<User> userList, List<JButton> buttons, List<JLabel> labels) {
+        JPanel scrollablePanel = new JPanel();
+        scrollablePanel.setBackground(Color.getHSBColor(54, 20, 197));
+        scrollablePanel.setLayout(new BoxLayout(scrollablePanel, BoxLayout.Y_AXIS));
+        setupUserLabelArray(userList, labels);
+        for (int i = 0; i < userList.size(); i++) {
+            JPanel linePanel = new JPanel();
+            linePanel.add(labels.get(i));
+            if(buttons != null){
+                linePanel.add(buttons.get(i));
+            }
+            scrollablePanel.add(linePanel);
+        }
+        return scrollablePanel;
+    }
+
+    private void setupUserLabelArray(List<User> userList, List<JLabel> labels){
+        for (int i = 0; i < userList.size(); i++) {
+            labels.add(new JLabel(userList.get(i).getName()));
+            labels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
     }

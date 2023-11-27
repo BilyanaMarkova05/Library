@@ -72,7 +72,7 @@ public class AdminOptionPage extends BaseOptionPage implements ActionListener {
 
     private void setupUsersButton() {
         usersButton.setText("Users");
-        usersButton.setBounds(510, 440, 200, 200);
+        usersButton.setBounds(610, 340, 200, 200);
         usersButton.setFocusable(false);
         usersButton.addActionListener(this);
     }
