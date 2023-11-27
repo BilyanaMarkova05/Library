@@ -108,5 +108,9 @@ public class UserPage extends BaseOptionPage implements ActionListener {
                 navigateToPage(this, new UserPage(bookController));
             }
         }
+
+        if (source.equals(this.getReturnButton())){
+            navigateToPage(this, new AdminOptionPage(bookController));
+        }
     }
 }
