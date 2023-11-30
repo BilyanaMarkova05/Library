@@ -14,6 +14,7 @@ public class AddBookPage extends JFrame implements ActionListener {
     private final JTextField bookGenreTextField;
     private final JButton addBookButton;
     private final BookController bookController;
+    private final JButton closeButton;
 
     public AddBookPage(BookController bookController){
         this.bookController = bookController;
@@ -22,6 +23,7 @@ public class AddBookPage extends JFrame implements ActionListener {
         this.bookGenreLabel = new JLabel();
         this.bookGenreTextField = new JTextField();
         this.addBookButton = new JButton();
+        this.closeButton = new JButton();
         setupFrame();
     }
 
@@ -40,6 +42,15 @@ public class AddBookPage extends JFrame implements ActionListener {
         setupGenreLabel();
         setupGenreField();
         setupAddBookButton();
+        setupReturnButton();
+    }
+
+    private void setupReturnButton() {
+        closeButton.setText("x");
+        closeButton.setBounds(7,7,15,15);
+        closeButton.setFocusable(true);
+        closeButton.addActionListener(this);
+        this.add(closeButton);
     }
 
     private void setupAddBookButton() {
@@ -78,6 +89,9 @@ public class AddBookPage extends JFrame implements ActionListener {
         Object source = actionEvent.getSource();
         if (source.equals(addBookButton)){
             bookController.addBook(bookTitleField.getText(), "FREE", bookGenreTextField.getText());
+            this.dispose();
+            new LibrarianOptionPage(bookController);
+        } else if (source.equals(closeButton)) {
             this.dispose();
             new LibrarianOptionPage(bookController);
         }

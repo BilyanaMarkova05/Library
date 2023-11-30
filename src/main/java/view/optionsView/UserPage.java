@@ -3,6 +3,7 @@ package view.optionsView;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.userModel.User;
+import view.HomePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -111,6 +112,9 @@ public class UserPage extends BaseOptionPage implements ActionListener {
 
         if (source.equals(this.getReturnButton())){
             navigateToPage(this, new AdminOptionPage(bookController));
+        } else if (source.equals(this.getLogoutButton())){
+            AuthenticationImpl.getInstance().logout();
+            navigateToPage(this, new HomePage());
         }
     }
 }
