@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="add close button to AddBookPage">
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/UserPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +266,39 @@
       <option name="project" value="LOCAL" />
       <updated>1701084817927</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add return button function for UserPage">
+      <option name="closed" value="true" />
+      <created>1701353463150</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353463151</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add close button to AddBookPage">
+      <option name="closed" value="true" />
+      <created>1701353686265</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353686265</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add close button to AddBookPage">
+      <option name="closed" value="true" />
+      <created>1701353731821</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353731821</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add close button to AddBookPage">
+      <option name="closed" value="true" />
+      <created>1701353791167</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701353791167</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +331,8 @@
     <MESSAGE value="admin options view" />
     <MESSAGE value="remove user and librarian profile view" />
     <MESSAGE value="add return button function for UserPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="add return button function for UserPage" />
+    <MESSAGE value="add close button to AddBookPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="add close button to AddBookPage" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

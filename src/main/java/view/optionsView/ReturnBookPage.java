@@ -77,6 +77,9 @@ public class ReturnBookPage extends BaseOptionPage implements ActionListener {
             }
         }else if(source.equals(getReturnButton())){
             navigateToPage(this, new UserOptionPage(bookController));
+        }else if(source.equals(getLogoutButton())){
+            authentication.logout();
+            navigateToPage(this, HomePage.getInstance());
         }
     }
 }
