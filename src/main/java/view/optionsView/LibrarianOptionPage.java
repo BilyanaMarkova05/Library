@@ -18,6 +18,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
     private final Authentication authentication;
     private final List<JButton> buttons;
     private final List<JLabel> allBooks;
+    private final List<JButton> editButtons;
     private final JButton addBookButton;
     private final JButton bookedBooksButton;
     private final BookController bookController;
@@ -28,6 +29,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         this.buttons = new ArrayList<>();
         this.bookController = bookController;
         this.allBooks = new ArrayList<>();
+        this.editButtons = new ArrayList<>();
         this.addBookButton = new JButton();
         this.bookedBooksButton = new JButton();
         setupComponents();
@@ -45,10 +47,11 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
         setupIcon("booked books icon.png",1550, 25, 100, 90 );
         setupTitleLabel("Booked books", 13, 1550, 110, 90, 20);
-        setupButtonArray();
+        setupButtonArray(buttons, "Remove");
+        setupButtonArray(editButtons, "Edit");
         setupAddBookButton();
         setupBookedBookButton();
-        setupBooksList(bookController.getAllBooks(), buttons, allBooks);
+        setupBooksList(bookController.getAllBooks(), buttons, allBooks,editButtons);
     }
 
     private void setupBookedBookButton() {
@@ -67,15 +70,15 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         this.add(addBookButton);
     }
 
-    private void setupButtonArray(){
+    private void setupButtonArray(List<JButton> buttons, String text){
         for (int i = 0; i < bookController.getAllBooks().size(); i++) {
             buttons.add(new JButton());
-            setupButton(i);
+            setupButton(buttons, i, text);
         }
     }
 
-    private void setupButton(int i) {
-        buttons.get(i).setText("Remove");
+    private void setupButton(List<JButton> buttons, int i, String text) {
+        buttons.get(i).setText(text);
         buttons.get(i).setSize(40, 20);
         buttons.get(i).setFocusable(false);
         buttons.get(i).addActionListener(this);
@@ -98,6 +101,11 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
             if (source.equals(buttons.get(i))) {
                 bookController.removeBook(bookController.getAllBooks().get(i).getName());
                 navigateToPage(this, new LibrarianOptionPage(bookController));
+            }
+        }
+        for (int i = 0; i < editButtons.size(); i++) {
+            if (source.equals(editButtons.get(i))){
+                new EditBookPage();
             }
         }
     }

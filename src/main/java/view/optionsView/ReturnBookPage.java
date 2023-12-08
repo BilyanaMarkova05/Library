@@ -32,7 +32,7 @@ public class ReturnBookPage extends BaseOptionPage implements ActionListener {
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
         setupDeleteProfileButton();
         setupButtonArray();
-        setupBooksList(bookController.getBookedBooksByUser(AuthenticationImpl.getLoggedUser()), buttons, bookedBooks);
+        setupBooksList(bookController.getBookedBooksByUser(AuthenticationImpl.getLoggedUser()), buttons, bookedBooks, null);
     }
 
     private void setupButtonArray(){

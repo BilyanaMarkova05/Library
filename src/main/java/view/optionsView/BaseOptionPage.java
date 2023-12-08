@@ -70,12 +70,16 @@ public class BaseOptionPage extends BasePage implements ActionListener {
     }
 
     //setupAllBooks
-    public void setupBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels) {
+    public void setupBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels, List<JButton> secondButtons) {
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(Color.ORANGE);
-        GridBagConstraints gbc = getGridBagConstraints(200, 600, 200, 600);
-
-        JPanel scrollablePanel = getScrollablePanel(bookList, buttons, bookLabels);
+        GridBagConstraints gbc = getGridBagConstraints(200, 500, 200, 500);
+        JPanel scrollablePanel;
+        if (secondButtons != null){
+            scrollablePanel = getScrollablePanel(bookList, buttons, bookLabels, secondButtons);
+        } else {
+            scrollablePanel = getScrollablePanel(bookList, buttons, bookLabels, null);
+        }
 
         JScrollPane scrollPane = new JScrollPane(scrollablePanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -96,7 +100,7 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         return gbc;
     }
 
-    private JPanel getScrollablePanel(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels) {
+    private JPanel getScrollablePanel(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels, List<JButton> secondButtons) {
         JPanel scrollablePanel = new JPanel();
         scrollablePanel.setLayout(new BoxLayout(scrollablePanel, BoxLayout.Y_AXIS));
         setupAllBooksLabelArray(bookList, bookLabels);
@@ -109,8 +113,10 @@ public class BaseOptionPage extends BasePage implements ActionListener {
                 setupIcon("red cross icon.png", 10, 10, 15, 15, linePanel);
             }
 
-            if(buttons != null){
             linePanel.add(buttons.get(i));
+
+            if (secondButtons != null){
+                linePanel.add(secondButtons.get(i));
             }
             scrollablePanel.add(linePanel);
         }
@@ -118,11 +124,12 @@ public class BaseOptionPage extends BasePage implements ActionListener {
     }
     private void setupAllBooksLabelArray(List<Book> bookList, List<JLabel> bookLabels){
         for (int i = 0; i < bookList.size(); i++) {
-            bookLabels.add(new JLabel(bookList.get(i).getName() + " - " + bookList.get(i).getGenre()));
+            bookLabels.add(new JLabel(bookList.get(i).getName() + " | "
+                    + bookList.get(i).getAuthor() + " | " + bookList.get(i).getGenre() + " | "
+                    + bookList.get(i).getNumber() + "\n"));
             bookLabels.get(i).setFont(new Font("Arial", Font.PLAIN, 20));
         }
     }
-
 
     //setupBookedBooks
     public JPanel setupBooksList(List<String> bookList, List<JLabel> bookLabels, int top,
@@ -175,7 +182,6 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         gbc.gridx = 0;
         gbc.gridy = 0;
         mainPanel.add(scrollPane, gbc);
-        //this.add(mainPanel);
         return mainPanel;
     }
 

@@ -49,8 +49,10 @@ public class BookDBImpl implements BookDB{
             while (rs.next()) {
                 String bookName = rs.getString("bookName");
                 String bookStatus = rs.getString("bookStatus");
+                String author = rs.getString("author");
                 String genre = rs.getString("genre");
-                allBooks.add(new Book(bookName, validateBookStatus(bookStatus), genre));
+                String number = rs.getString("number");
+                allBooks.add(new Book(bookName, validateBookStatus(bookStatus),author, genre, Integer.parseInt(number)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -77,8 +79,9 @@ public class BookDBImpl implements BookDB{
         for (int i = 0; i < getBookedBooksNamesByUser(user).size(); i++) {
             for (int j = 0; j < getAllBooks().size(); j++) {
                 if (getBookedBooksNamesByUser(user).get(i).equals(getAllBooks().get(j).getName())) {
-                    bookedBooks.add(new Book(getAllBooks().get(j).getName(),
-                            getAllBooks().get(j).getBookStatus(), getAllBooks().get(j).getGenre()));
+                    bookedBooks.add(new Book(getAllBooks().get(j).getName(), getAllBooks().get(j).getBookStatus(),
+                            getAllBooks().get(j).getAuthor(), getAllBooks().get(j).getGenre(),
+                            getAllBooks().get(j).getNumber()));
                 }
             }
         }
