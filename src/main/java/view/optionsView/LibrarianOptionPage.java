@@ -42,6 +42,10 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         return instance;
     }
 
+    public List<JButton> getEditButtons() {
+        return editButtons;
+    }
+
     private void setupComponents() {
         setupIcon("icon.png", 590,80, 100, 60 );
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
@@ -105,7 +109,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         }
         for (int i = 0; i < editButtons.size(); i++) {
             if (source.equals(editButtons.get(i))){
-                new EditBookPage();
+                new EditBookPage(bookController);
             }
         }
     }

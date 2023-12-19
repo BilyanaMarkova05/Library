@@ -107,9 +107,9 @@ public class BaseOptionPage extends BasePage implements ActionListener {
         for (int i = 0; i < bookList.size(); i++) {
             JPanel linePanel = new JPanel();
             linePanel.add(bookLabels.get(i));
-            if (bookList.get(i).getBookStatus() == BookStatus.FREE) {
+            if (bookList.get(i).getBookStatus() == BookStatus.FREE && bookList.get(i).getNumber() > 1) {
                 setupIcon("green tick icon.png", 10, 10, 15, 15, linePanel);
-            }else{
+            }else {
                 setupIcon("red cross icon.png", 10, 10, 15, 15, linePanel);
             }
 

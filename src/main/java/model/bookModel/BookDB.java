@@ -8,6 +8,10 @@ public interface BookDB {
 
     void updateBookStatus (String bookName, String bookStatus);
 
+    void updateBookTitle (String currentBookTitle, String newBookTitle);
+
+    void updateBookNumber(Book book, int number);
+
     List<Book> getAllBooks();
 
     List<String> getBookedBooksNamesByUser(User user);
@@ -18,7 +22,7 @@ public interface BookDB {
 
     void insertBookedBooksTable(String username, String bookName);
 
-    void insertBooksTable(String bookName, String bookStatus, String genre);
+    void insertBooksTable(String bookName, String bookStatus, String genre, String author, int number);
 
     void deleteFromBookedBooks(String userName, String bookName);
 

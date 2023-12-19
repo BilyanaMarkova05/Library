@@ -51,9 +51,9 @@ public class RentBookPage extends BaseOptionPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         for (int i = 0; i < buttons.size(); i++) {
-            if (source.equals(buttons.get(i))){
-             bookController.rentBook(bookController.getAllBooks().get(i).getName());
-             navigateToPage(this, new RentBookPage(bookController));
+            if (source.equals(buttons.get(i))) {
+                bookController.rentBook(bookController.getAllBooks().get(i).getName());
+                navigateToPage(this, new RentBookPage(bookController));
             }
         }
         if (source.equals(deleteProfileButton)) {

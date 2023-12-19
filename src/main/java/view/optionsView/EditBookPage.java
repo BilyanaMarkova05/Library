@@ -1,5 +1,7 @@
 package view.optionsView;
 
+import controller.BookController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,8 +13,10 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
     private final JButton editGenreButton;
     private final JButton editNumberButton;
     private final JButton closeButton;
+    private final BookController bookController;
+    private static EditBookPage instance;
 
-    public EditBookPage (){
+    public EditBookPage (BookController bookController){
         super(605, 300, 500, 500);
         setLayout(null);
         this.getContentPane().setBackground(Color.getHSBColor(54, 20, 197));
@@ -21,7 +25,15 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
         this.editGenreButton = new JButton();
         this.editNumberButton = new JButton();
         this.closeButton = new JButton();
+        this.bookController = bookController;
         setupComponents();
+    }
+
+    public static EditBookPage getInstance(BookController bookController) {
+        if (instance == null) {
+            instance = new EditBookPage(bookController);
+        }
+        return instance;
     }
 
     private void setupComponents() {
@@ -34,7 +46,7 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
 
     private void setCloseButton() {
         closeButton.setText("x");
-        closeButton.setBounds(2, 2, 20,20);
+        closeButton.setBounds(4, 4, 20,20);
         closeButton.addActionListener(this);
         this.add(closeButton);
     }
@@ -51,6 +63,10 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
         Object source = e.getSource();
         if (source.equals(closeButton)){
             this.dispose();
+        } else if (source.equals(editBookTitleButton)) {
+            new EditBookTitlePage(bookController);
+        } else if (source.equals(editNumberButton)){
+            new EditBookNumber(bookController);
         }
     }
 }

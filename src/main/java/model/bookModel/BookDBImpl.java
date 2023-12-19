@@ -36,6 +36,40 @@ public class BookDBImpl implements BookDB{
         }
     }
 
+    public void updateBookNumber (Book book, int number) {
+        String SQL = "UPDATE books "
+                + "SET number = ? "
+                + "WHERE bookName = ? ";
+
+        try (Connection conn = connect();
+             PreparedStatement statement = conn.prepareStatement(SQL)) {
+
+            statement.setInt(1,number);
+            statement.setString(2, book.getName());
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void updateBookTitle (String currentBookTitle, String newBookTitle) {
+        String SQL = "UPDATE books "
+                + "SET bookName = ? "
+                + "WHERE bookName = ? ";
+
+        try (Connection conn = connect();
+             PreparedStatement statement = conn.prepareStatement(SQL)) {
+
+            statement.setString(1, newBookTitle);
+            statement.setString(2, currentBookTitle);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public List<Book> getAllBooks() {
         List<Book> allBooks = new ArrayList<>();
         Connection con ;
@@ -129,10 +163,10 @@ public class BookDBImpl implements BookDB{
     }
 
     @Override
-    public void insertBooksTable(String bookName, String bookStatus, String genre) {
+    public void insertBooksTable(String bookName, String bookStatus, String genre, String author, int number) {
         try {
-            String sql = "INSERT INTO books (bookName, bookStatus, genre) " +
-                    "VALUES ('" + bookName + "', '" + bookStatus + "', '" + genre+ "')";
+            String sql = "INSERT INTO books (bookName, bookStatus, genre, author, number) " +
+                    "VALUES ('" + bookName + "', '" + bookStatus + "', '" + genre+ "', '" + author + "', '" + number + "' )";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();

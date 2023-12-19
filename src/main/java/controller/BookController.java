@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface BookController {
 
+    void updateBookTitle (String currentBookTitle, String newBookTitle);
+    void updateBookNumber(Book book, int number);
     void rentBook(String bookName);
 
     void returnBook(String bookName);
 
-    void addBook(String bookName, String bookStatus, String genre);
+    void addBook(String bookName, String bookStatus, String genre,String author, int number);
 
     void removeBook(String bookName);
 

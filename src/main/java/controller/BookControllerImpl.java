@@ -19,15 +19,27 @@ public class BookControllerImpl implements BookController{
         this.authentication = AuthenticationImpl.getInstance();
     }
 
+    @Override
+    public void updateBookTitle(String currentBookTitle, String newBookTitle) {
+        bookDB.updateBookTitle(currentBookTitle, newBookTitle);
+    }
+
+    @Override
+    public void updateBookNumber(Book book, int number) {
+        bookDB.updateBookNumber(book, number);
+    }
+
     public void rentBook(String bookName) {
         List<Book> allBooks = bookDB.getAllBooks();
         for (Book book : allBooks) {
-            if (book.getName().equals(bookName) && book.getBookStatus() == BookStatus.BOOKED){
+            if (book.getName().equals(bookName) && book.getBookStatus() == BookStatus.BOOKED && book.getNumber() == 0){
                 JOptionPane.showMessageDialog(null, bookName + " is already booked");
             }else if (book.getName().equals(bookName) &&
-                    book.getBookStatus() == BookStatus.FREE) {
-                bookDB.updateBookStatus(bookName, "BOOKED");
+                    book.getBookStatus() == BookStatus.FREE && book.getNumber() != 0) {
+                bookDB.updateBookNumber(book, book.getNumber() - 1);
                 bookDB.insertBookedBooksTable(loggedUser.getName(), bookName);
+            }else if (book.getNumber() == 1){
+                bookDB.updateBookStatus(bookName, "BOOKED");
             }
         }
     }
@@ -36,10 +48,12 @@ public class BookControllerImpl implements BookController{
         for (Book bookedBook : bookDB.getBookedBooksByUser(loggedUser)) {
             if (bookName.equals(bookedBook.getName())) {
                 for (int i = 0; i < bookDB.getAllBooks().size(); i++) {
-                    if (bookDB.getAllBooks().get(i).getName().equals(bookName) &&
-                            bookDB.getAllBooks().get(i).getBookStatus() == BookStatus.BOOKED) {
-                        bookDB.updateBookStatus(bookName, "FREE");
+                    if (bookDB.getAllBooks().get(i).getName().equals(bookName)) {
+                        bookDB.updateBookNumber(bookedBook, bookedBook.getNumber() + 1);
                         bookDB.deleteFromBookedBooks(loggedUser.getName(), bookName);
+                        if (bookedBook.getNumber() == 1){
+                            bookDB.updateBookStatus(bookName, "FREE");
+                        }
                     }
                 }
             }
@@ -47,14 +61,14 @@ public class BookControllerImpl implements BookController{
     }
 
     @Override
-    public void addBook(String bookName, String bookStatus, String genre) {
+    public void addBook(String bookName, String bookStatus, String genre, String author, int number) {
         for (Book book: bookDB.getAllBooks()) {
             if (book.getName().equals(bookName)){
                 JOptionPane.showMessageDialog(null, bookName + " already exist.");
                 return;
             }
         }
-        bookDB.insertBooksTable(bookName, bookStatus, genre);
+        bookDB.insertBooksTable(bookName, bookStatus, genre, author, number);
     }
 
     @Override
