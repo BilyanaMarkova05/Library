@@ -22,6 +22,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
     private final JButton addBookButton;
     private final JButton bookedBooksButton;
     private final BookController bookController;
+    private  String currentBookTitle;
     public LibrarianOptionPage(BookController bookController) {
         this.setTitle("Options");
         this.getContentPane().setBackground(Color.ORANGE);
@@ -107,9 +108,9 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
                 navigateToPage(this, new LibrarianOptionPage(bookController));
             }
         }
-        for (int i = 0; i < editButtons.size(); i++) {
+        for (int i = 0; i < editButtons.size(); i++){
             if (source.equals(editButtons.get(i))){
-                new EditBookPage(bookController);
+                new EditBookPage(bookController.getAllBooks().get(i), bookController);
             }
         }
     }

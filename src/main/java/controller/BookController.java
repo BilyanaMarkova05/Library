@@ -8,6 +8,8 @@ import java.util.List;
 public interface BookController {
 
     void updateBookTitle (String currentBookTitle, String newBookTitle);
+    void updateBookAuthor (String bookTitle, String author);
+    void updateBookGenre (String bookTitle, String genre);
     void updateBookNumber(Book book, int number);
     void rentBook(String bookName);
 

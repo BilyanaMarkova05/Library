@@ -70,6 +70,38 @@ public class BookDBImpl implements BookDB{
         }
     }
 
+    public void updateBookAuthor (String bookTitle, String author){
+        String SQL = "UPDATE books " +
+                "SET author = ? " +
+                "WHERE bookName = ? ";
+        try (Connection conn = connect();
+             PreparedStatement statement = conn.prepareStatement(SQL)) {
+
+            statement.setString(1, author);
+            statement.setString(2, bookTitle);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void updateBookGenre(String bookTitle, String genre){
+        String SQL = "UPDATE books " +
+                "SET genre = ? " +
+                "WHERE bookName = ? ";
+        try (Connection conn = connect();
+             PreparedStatement statement = conn.prepareStatement(SQL)) {
+
+            statement.setString(1, genre);
+            statement.setString(2, bookTitle);
+            statement.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public List<Book> getAllBooks() {
         List<Book> allBooks = new ArrayList<>();
         Connection con ;

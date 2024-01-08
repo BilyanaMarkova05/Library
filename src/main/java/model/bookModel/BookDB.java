@@ -10,6 +10,10 @@ public interface BookDB {
 
     void updateBookTitle (String currentBookTitle, String newBookTitle);
 
+    void updateBookAuthor(String bookTitle, String author);
+
+    void updateBookGenre(String bookTitle, String genre);
+
     void updateBookNumber(Book book, int number);
 
     List<Book> getAllBooks();

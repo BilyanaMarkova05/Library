@@ -6,26 +6,25 @@ import model.bookModel.Book;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-public class EditBookNumber extends BaseEditBookPage implements ActionListener {
-    private final Book book;
+public class EditAuthorPage extends BaseEditBookPage implements ActionListener {
     private final BookController bookController;
-    public EditBookNumber(Book book, BookController bookController){
-        super(new JLabel("number: "), new JTextField(), new JButton("Save"));
-        this.book = book;
+    private final Book book;
+    public EditAuthorPage(Book book, BookController bookController){
+        super(new JLabel("author: "), new JTextField(), new JButton("Save"));
         this.bookController = bookController;
+        this.book = book;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(getButton())){
-            bookController.updateBookNumber(book, Integer.parseInt(getField().getText()));
+            bookController.updateBookAuthor(book.getName(), getField().getText());
             this.dispose();
-        } else if (source.equals(getBackButton())) {
-            navigateToPage(this, new EditBookPage(book, bookController));
         } else if (source.equals(getCloseButton())) {
             navigateToPage(this, new LibrarianOptionPage(bookController));
+        } else if (source.equals(getBackButton())) {
+            navigateToPage(this, new EditBookPage(book, bookController));
         }
     }
 }

@@ -1,6 +1,7 @@
 package view.optionsView;
 
 import controller.BookController;
+import model.bookModel.Book;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +15,10 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
     private final JButton editNumberButton;
     private final JButton closeButton;
     private final BookController bookController;
+    private final Book book;
     private static EditBookPage instance;
 
-    public EditBookPage (BookController bookController){
+    public EditBookPage (Book book, BookController bookController){
         super(605, 300, 500, 500);
         setLayout(null);
         this.getContentPane().setBackground(Color.getHSBColor(54, 20, 197));
@@ -26,12 +28,13 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
         this.editNumberButton = new JButton();
         this.closeButton = new JButton();
         this.bookController = bookController;
+        this.book = book;
         setupComponents();
     }
 
-    public static EditBookPage getInstance(BookController bookController) {
+    public static EditBookPage getInstance(Book book, BookController bookController) {
         if (instance == null) {
-            instance = new EditBookPage(bookController);
+            instance = new EditBookPage(book, bookController);
         }
         return instance;
     }
@@ -62,11 +65,15 @@ public class EditBookPage extends BaseOptionPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(closeButton)){
-            this.dispose();
+            navigateToPage(this, new LibrarianOptionPage(bookController));
         } else if (source.equals(editBookTitleButton)) {
-            new EditBookTitlePage(bookController);
+            new EditBookTitlePage(book, bookController);
+        } else if (source.equals(editAuthorButton)) {
+            new EditAuthorPage(book, bookController);
+        } else if (source.equals(editGenreButton)) {
+            new EditGenrePage(book, bookController);
         } else if (source.equals(editNumberButton)){
-            new EditBookNumber(bookController);
+            new EditBookNumber(book, bookController);
         }
     }
 }

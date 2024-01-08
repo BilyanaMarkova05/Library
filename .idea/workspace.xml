@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="add author and number columns to books table">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookTitlePage.java" afterDir="false" />
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="add edit book title option for librarian and numbers of the books">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseEditBookPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditAuthorPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditGenrePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
@@ -17,27 +18,24 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AddBookPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AddBookPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditBookPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditBookPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AddBookPage.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EditBookPage.class.uniqueId2" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EditBookPage.class.uniqueId2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LibrarianOptionPage.class.uniqueId3" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LibrarianOptionPage.class.uniqueId3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LoginLibrarianPage.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EditBookPage.class.uniqueId2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LibrarianOptionPage.class.uniqueId3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/AddBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/AddBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookTitlePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/RentBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/RentBookPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702030622521</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add edit book title option for librarian and numbers of the books">
+      <option name="closed" value="true" />
+      <created>1702972377522</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1702972377522</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +395,8 @@
     <MESSAGE value="add close button to AddBookPage" />
     <MESSAGE value="logout function on ReturnBookPage" />
     <MESSAGE value="add author and number columns to books table" />
-    <option name="LAST_COMMIT_MESSAGE" value="add author and number columns to books table" />
+    <MESSAGE value="add edit book title option for librarian and numbers of the books" />
+    <option name="LAST_COMMIT_MESSAGE" value="add edit book title option for librarian and numbers of the books" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

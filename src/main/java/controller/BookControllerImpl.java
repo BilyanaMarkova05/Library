@@ -25,6 +25,16 @@ public class BookControllerImpl implements BookController{
     }
 
     @Override
+    public void updateBookAuthor(String bookTitle, String author) {
+        bookDB.updateBookAuthor(bookTitle, author);
+    }
+
+    @Override
+    public void updateBookGenre(String bookTitle, String genre) {
+        bookDB.updateBookGenre(bookTitle, genre);
+    }
+
+    @Override
     public void updateBookNumber(Book book, int number) {
         bookDB.updateBookNumber(book, number);
     }
