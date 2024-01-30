@@ -6,7 +6,7 @@ import controller.BookController;
 import controller.BookControllerImpl;
 import model.userModel.UserStatus;
 import view.HomePage;
-import view.optionsView.LibrarianOptionPage;
+import view.optionsView.librarianOptionsPages.LibrarianOptionPage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

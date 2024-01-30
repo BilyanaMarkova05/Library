@@ -15,6 +15,9 @@ public interface BookDB {
     void updateBookGenre(String bookTitle, String genre);
 
     void updateBookNumber(Book book, int number);
+    void insertIntoSearchedBooksTable(Book book);
+    void truncateSearchedBooksTable();
+    List<Book> getSearchedBooks();
 
     List<Book> getAllBooks();
 
@@ -24,11 +27,13 @@ public interface BookDB {
 
     List<String> getBookedBooks();
 
-    void insertBookedBooksTable(String username, String bookName);
+    void insertIntoBookedBooksTable(String username, String bookName);
 
-    void insertBooksTable(String bookName, String bookStatus, String genre, String author, int number);
+    void insertIntoBooksTable(String bookName, String bookStatus, String genre, String author, int number);
 
     void deleteFromBookedBooks(String userName, String bookName);
 
     void removeBook(String bookName);
+
+    void removeSearchedBook();
 }

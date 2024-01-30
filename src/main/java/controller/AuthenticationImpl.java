@@ -3,7 +3,7 @@ package controller;
 import model.userModel.*;
 import org.mindrot.jbcrypt.BCrypt;
 import view.authenticationView.*;
-import view.optionsView.AdminOptionPage;
+import view.optionsView.adminOptionsPages.AdminOptionPage;
 
 import java.util.List;
 

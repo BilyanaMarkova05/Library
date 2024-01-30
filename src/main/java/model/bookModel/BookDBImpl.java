@@ -53,6 +53,53 @@ public class BookDBImpl implements BookDB{
         }
     }
 
+    @Override
+    public void insertIntoSearchedBooksTable(Book book) {
+        try {
+            String sql = "INSERT INTO searchedbooks (booktitle, bookstatus, genre, author, number) " +
+                    "VALUES ('" + book.getName() + "', '" + book.getBookStatus() + "', '" + book.getGenre() + "', '"
+                    + book.getAuthor() + "', '" + book.getNumber() + "')";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void truncateSearchedBooksTable() {
+        try {
+            String sql = "TRUNCATE searchedBooks";
+            statement.executeUpdate(sql);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Book> getSearchedBooks() {
+        List<Book> searchedBooks = new ArrayList<>();
+        Connection con ;
+        PreparedStatement p ;
+        ResultSet rs ;
+        con = connect();
+        try {
+            String sql = "SELECT * FROM searchedbooks";
+            p = con.prepareStatement(sql);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                String bookName = rs.getString("booktitle");
+                String bookStatus = rs.getString("bookStatus");
+                String author = rs.getString("author");
+                String genre = rs.getString("genre");
+                String number = rs.getString("number");
+                searchedBooks.add(new Book(bookName, validateBookStatus(bookStatus),author, genre, Integer.parseInt(number)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return searchedBooks;
+    }
+
     public void updateBookTitle (String currentBookTitle, String newBookTitle) {
         String SQL = "UPDATE books "
                 + "SET bookName = ? "
@@ -142,12 +189,13 @@ public class BookDBImpl implements BookDB{
 
     public List<Book> getBookedBooksByUser(User user) {
         List<Book> bookedBooks = new ArrayList<>();
+        List<Book> allBooks = getAllBooks();
         for (int i = 0; i < getBookedBooksNamesByUser(user).size(); i++) {
-            for (int j = 0; j < getAllBooks().size(); j++) {
-                if (getBookedBooksNamesByUser(user).get(i).equals(getAllBooks().get(j).getName())) {
-                    bookedBooks.add(new Book(getAllBooks().get(j).getName(), getAllBooks().get(j).getBookStatus(),
-                            getAllBooks().get(j).getAuthor(), getAllBooks().get(j).getGenre(),
-                            getAllBooks().get(j).getNumber()));
+            for (Book allBook : allBooks) {
+                if (getBookedBooksNamesByUser(user).get(i).equals(allBook.getName())) {
+                    bookedBooks.add(new Book(allBook.getName(), allBook.getBookStatus(),
+                            allBook.getAuthor(), allBook.getGenre(),
+                            allBook.getNumber()));
                 }
             }
         }
@@ -184,7 +232,7 @@ public class BookDBImpl implements BookDB{
         }
     }
 
-    public void insertBookedBooksTable(String username, String bookName) {
+    public void insertIntoBookedBooksTable(String username, String bookName) {
         try {
             String sql = "INSERT INTO bookedBooks (username, bookName) " +
                     "VALUES ('" + username + "'" + ", " + "'" + bookName + "')";
@@ -195,7 +243,7 @@ public class BookDBImpl implements BookDB{
     }
 
     @Override
-    public void insertBooksTable(String bookName, String bookStatus, String genre, String author, int number) {
+    public void insertIntoBooksTable(String bookName, String bookStatus, String genre, String author, int number) {
         try {
             String sql = "INSERT INTO books (bookName, bookStatus, genre, author, number) " +
                     "VALUES ('" + bookName + "', '" + bookStatus + "', '" + genre+ "', '" + author + "', '" + number + "' )";
@@ -221,6 +269,16 @@ public class BookDBImpl implements BookDB{
         try {
             String sql = "DELETE FROM books " +
                     "WHERE bookName = '" + bookName + "'";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void removeSearchedBook() {
+        try {
+            String sql = "TRUNCATE TABLE searchedbooks ";
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,9 +1,10 @@
-package view.optionsView;
+package view.optionsView.userOptonsPages;
 
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.HomePage;
+import view.optionsView.BaseOptionPage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,11 +33,12 @@ public class ReturnBookPage extends BaseOptionPage implements ActionListener {
         setupTitleLabel("Library Management System", 30, 650, 90, 500, 50);
         setupDeleteProfileButton();
         setupButtonArray();
-        setupBooksList(bookController.getBookedBooksByUser(AuthenticationImpl.getLoggedUser()), buttons, bookedBooks, null);
+        setupBooksList(bookController.getBookedBooksByUser(AuthenticationImpl.getLoggedUser()), buttons, bookedBooks, null,
+                300, 500, 100, 500);
     }
 
     private void setupButtonArray(){
-        for (int i = 0; i < bookController.getAllBooks().size(); i++) {
+        for (int i = 0; i < bookController.getBookedBooksByUser(AuthenticationImpl.getLoggedUser()).size(); i++) {
             buttons.add(new JButton());
             setupButton(i);
         }

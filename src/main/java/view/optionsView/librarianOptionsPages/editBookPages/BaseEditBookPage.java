@@ -1,9 +1,11 @@
-package view.optionsView;
+package view.optionsView.librarianOptionsPages.editBookPages;
+
+import view.optionsView.BaseOptionPage;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BaseEditBookPage extends BaseOptionPage{
+public class BaseEditBookPage extends BaseOptionPage {
     private final JLabel label;
     private final JTextField field;
     private final JButton button;

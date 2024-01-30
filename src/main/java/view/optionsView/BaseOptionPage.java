@@ -70,10 +70,11 @@ public class BaseOptionPage extends BasePage implements ActionListener {
     }
 
     //setupAllBooks
-    public void setupBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels, List<JButton> secondButtons) {
+    public void setupBooksList(List<Book> bookList, List<JButton> buttons, List<JLabel> bookLabels, List<JButton> secondButtons,
+                               int top, int left, int bottom, int right) {
         JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setBackground(Color.ORANGE);
-        GridBagConstraints gbc = getGridBagConstraints(200, 500, 200, 500);
+        GridBagConstraints gbc = getGridBagConstraints(top, left, bottom, right);
         JPanel scrollablePanel;
         if (secondButtons != null){
             scrollablePanel = getScrollablePanel(bookList, buttons, bookLabels, secondButtons);
@@ -167,7 +168,6 @@ public class BaseOptionPage extends BasePage implements ActionListener {
     }
 
     //setup users
-
     public JPanel setupUsersList(List<User> userList, List<JButton> buttons, List<JLabel> labels,
                                int top, int left, int bottom, int right) {
         JPanel mainPanel = new JPanel(new GridBagLayout());

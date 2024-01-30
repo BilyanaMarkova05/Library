@@ -1,6 +1,7 @@
-package view.optionsView;
+package view.optionsView.librarianOptionsPages;
 
 import controller.BookController;
+import view.optionsView.BaseOptionPage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

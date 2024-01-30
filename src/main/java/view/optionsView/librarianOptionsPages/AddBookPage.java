@@ -1,4 +1,4 @@
-package view.optionsView;
+package view.optionsView.librarianOptionsPages;
 
 import controller.BookController;
 

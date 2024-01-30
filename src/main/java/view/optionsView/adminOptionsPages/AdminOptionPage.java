@@ -1,10 +1,11 @@
-package view.optionsView;
+package view.optionsView.adminOptionsPages;
 
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.HomePage;
 import view.authenticationView.RegistrationLibrarianPage;
+import view.optionsView.BaseOptionPage;
 
 import javax.swing.*;
 import java.awt.*;

@@ -4,7 +4,7 @@ import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import controller.BookControllerImpl;
-import view.optionsView.AdminOptionPage;
+import view.optionsView.adminOptionsPages.AdminOptionPage;
 
 import java.awt.event.ActionEvent;
 

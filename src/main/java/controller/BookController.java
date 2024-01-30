@@ -15,6 +15,12 @@ public interface BookController {
 
     void returnBook(String bookName);
 
+    void addSearchedBook (String title);
+
+    void truncateSearchedBooks();
+    List<Book> getSearchedBooks();
+    void removeSearchedBooks();
+
     void addBook(String bookName, String bookStatus, String genre,String author, int number);
 
     void removeBook(String bookName);

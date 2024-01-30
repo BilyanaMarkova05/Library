@@ -1,10 +1,12 @@
-package view.optionsView;
+package view.optionsView.librarianOptionsPages;
 
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.HomePage;
 import view.authenticationView.LoginLibrarianPage;
+import view.optionsView.BaseOptionPage;
+import view.optionsView.librarianOptionsPages.editBookPages.EditBookPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,7 +58,7 @@ public class LibrarianOptionPage extends BaseOptionPage implements ActionListene
         setupButtonArray(editButtons, "Edit");
         setupAddBookButton();
         setupBookedBookButton();
-        setupBooksList(bookController.getAllBooks(), buttons, allBooks,editButtons);
+        setupBooksList(bookController.getAllBooks(), buttons, allBooks,editButtons, 300, 500, 100, 500);
     }
 
     private void setupBookedBookButton() {

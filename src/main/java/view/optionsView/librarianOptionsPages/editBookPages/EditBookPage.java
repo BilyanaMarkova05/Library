@@ -1,7 +1,9 @@
-package view.optionsView;
+package view.optionsView.librarianOptionsPages.editBookPages;
 
 import controller.BookController;
 import model.bookModel.Book;
+import view.optionsView.BaseOptionPage;
+import view.optionsView.librarianOptionsPages.LibrarianOptionPage;
 
 import javax.swing.*;
 import java.awt.*;

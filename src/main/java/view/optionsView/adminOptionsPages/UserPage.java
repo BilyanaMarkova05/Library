@@ -1,9 +1,10 @@
-package view.optionsView;
+package view.optionsView.adminOptionsPages;
 
 import controller.AuthenticationImpl;
 import controller.BookController;
 import model.userModel.User;
 import view.HomePage;
+import view.optionsView.BaseOptionPage;
 
 import javax.swing.*;
 import java.awt.*;

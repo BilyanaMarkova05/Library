@@ -1,8 +1,10 @@
-package view.optionsView;
+package view.optionsView.userOptonsPages;
 import controller.Authentication;
 import controller.AuthenticationImpl;
 import controller.BookController;
 import view.HomePage;
+import view.optionsView.BaseOptionPage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -91,14 +93,6 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
             navigateToPage(this, new RentBookPage(bookController));
         } else if (source.equals(yourBooksButton)) {
             navigateToPage(this, new ReturnBookPage(bookController));
-        } else if (source.equals(deleteProfileButton)){
-            if (bookController.doesUserHaveBooks(AuthenticationImpl.getLoggedUser().getName())){
-                JOptionPane.showMessageDialog(null,"This user have booked books. " +
-                        "You cannot delete this account before the books are returned.");
-            }else {
-                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
-                navigateToPage(this, HomePage.getInstance());
-            }
         } else if (source.equals(this.getLogoutButton())){
            authentication.logout();
            navigateToPage(this, HomePage.getInstance());

@@ -47,7 +47,7 @@ public class BookControllerImpl implements BookController{
             }else if (book.getName().equals(bookName) &&
                     book.getBookStatus() == BookStatus.FREE && book.getNumber() != 0) {
                 bookDB.updateBookNumber(book, book.getNumber() - 1);
-                bookDB.insertBookedBooksTable(loggedUser.getName(), bookName);
+                bookDB.insertIntoBookedBooksTable(loggedUser.getName(), bookName);
             }else if (book.getNumber() == 1){
                 bookDB.updateBookStatus(bookName, "BOOKED");
             }
@@ -71,6 +71,30 @@ public class BookControllerImpl implements BookController{
     }
 
     @Override
+    public void addSearchedBook(String title) {
+        for (Book b: bookDB.getAllBooks()) {
+            if (b.getName().equals(title)){
+                bookDB.insertIntoSearchedBooksTable(b);
+            }
+        }
+    }
+
+    @Override
+    public void truncateSearchedBooks() {
+        bookDB.truncateSearchedBooksTable();
+    }
+
+    @Override
+    public List<Book> getSearchedBooks() {
+        return bookDB.getSearchedBooks();
+    }
+
+    @Override
+    public void removeSearchedBooks() {
+        bookDB.removeSearchedBook();
+    }
+
+    @Override
     public void addBook(String bookName, String bookStatus, String genre, String author, int number) {
         for (Book book: bookDB.getAllBooks()) {
             if (book.getName().equals(bookName)){
@@ -78,7 +102,7 @@ public class BookControllerImpl implements BookController{
                 return;
             }
         }
-        bookDB.insertBooksTable(bookName, bookStatus, genre, author, number);
+        bookDB.insertIntoBooksTable(bookName, bookStatus, genre, author, number);
     }
 
     @Override
