@@ -13,6 +13,7 @@ import java.util.List;
 
 
 public class SearchPage extends BaseOptionPage implements ActionListener {
+    private final JButton closeButton;
     private final List<Book> allBooks;
     private final JTextField searchField;
     private final JLabel searchLabel;
@@ -23,24 +24,28 @@ public class SearchPage extends BaseOptionPage implements ActionListener {
     private final JPanel searchLabelPanel;
     private final JPanel searchButtonPanel;
     private final String text;
-    private final List<Book> searchedBook;
+    private final List<Book> currentSearchedBook;
+    private final List<Book> allSearchedBooks;
     public SearchPage(BookController bookController, String text){
         super(605, 300, 560, 560);
         this.allBooks = bookController.getAllBooks();
+        this.closeButton = new JButton();
         this.searchField = new JTextField();
         this.searchLabel = new JLabel();
         this.searchButton = new JButton();
         this.buttons = new ArrayList<>();
         this.bookController = bookController;
         this.labels = new ArrayList<>();
-        searchLabelPanel = new JPanel();
-        searchButtonPanel = new JPanel();
-        searchedBook = new ArrayList<>();
+        this.searchLabelPanel = new JPanel();
+        this.searchButtonPanel = new JPanel();
+        this.currentSearchedBook = new ArrayList<>();
+        this.allSearchedBooks = bookController.getSearchedBooks();
         this.text = text;
         setupComponents(text);
     }
 
     private void setupComponents(String text) {
+        setupCloseButton();
         setupSearchedBook();
         setupSearchField();
         setupSearchLabel(text);
@@ -48,13 +53,21 @@ public class SearchPage extends BaseOptionPage implements ActionListener {
         setupSearchLabelPanel();
         setupButtonArray();
         setupSearchButton();
-        setupBooksList(searchedBook, buttons, labels, null, 100, 20, 10, 20);
+        setupBooksList(currentSearchedBook, buttons, labels, null, 100, 20, 10, 20);
+    }
+
+    private void setupCloseButton() {
+        closeButton.setText("x");
+        closeButton.setBounds(0,0, 20,20);
+        closeButton.addActionListener(this);
+        this.add(closeButton);
     }
 
     private void setupButtonArray() {
-        for (int i = 0; i <= searchedBook.size(); i++) {
+        for (int i = 0; i <= currentSearchedBook.size(); i++) {
             buttons.add(new JButton());
             buttons.get(i).setText("Rent");
+            buttons.get(i).addActionListener(this);
         }
     }
 
@@ -88,8 +101,6 @@ public class SearchPage extends BaseOptionPage implements ActionListener {
     }
 
     private void setupSearchedBook(){
-
-        List<Book> allSearchedBooks = bookController.getSearchedBooks();
         if (allSearchedBooks.isEmpty()){
             JLabel message = new JLabel("no previous searches");
             message.setBounds(200, 55, 150, 40);
@@ -97,18 +108,20 @@ public class SearchPage extends BaseOptionPage implements ActionListener {
         }else {
             Book lastBook = allSearchedBooks.get(Math.max(0, allSearchedBooks.size() - 1));
 
-            if(text.equals("title: ")){
-                searchedBook.add(lastBook);
-            } else if (text.equals("author: ")) {
-                for (Book book : allBooks) {
-                    if (book.getAuthor().equals(lastBook.getAuthor())) {
-                        searchedBook.add(book);
+            switch (text) {
+                case "title: " -> currentSearchedBook.add(lastBook);
+                case "author: " -> {
+                    for (Book book : allBooks) {
+                        if (book.getAuthor().equals(lastBook.getAuthor())) {
+                            currentSearchedBook.add(book);
+                        }
                     }
                 }
-            } else if (text.equals("genre: ")) {
-                for (Book book : allBooks) {
-                    if (book.getGenre().equals(lastBook.getGenre())) {
-                        searchedBook.add(book);
+                case "genre: " -> {
+                    for (Book book : allBooks) {
+                        if (book.getGenre().equals(lastBook.getGenre())) {
+                            currentSearchedBook.add(book);
+                        }
                     }
                 }
             }
@@ -118,24 +131,32 @@ public class SearchPage extends BaseOptionPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(searchButton)) {
-            if(text.equals("title: ")){
-                bookController.addSearchedBook(searchField.getText());
-            }else if (text.equals("author: ")){
-                for (Book book : allBooks) {
-                    if (book.getAuthor().equals(searchField.getText())){
-                        bookController.addSearchedBook(book.getName());
+                if (text.equals("title: ")){
+                    bookController.addSearchedBook(searchField.getText());
+                }
+                if (text.equals("author: ")) {
+                    for (Book book : allBooks) {
+                        if (book.getAuthor().equals(searchField.getText())) {
+                            bookController.addSearchedBook(book.getName());
+                        }
                     }
                 }
-            } else if (text.equals("genre: ")) {
-                for (Book book :
-                        allBooks) {
-                    if (book.getGenre().equals(searchField.getText())) {
-                        bookController.addSearchedBook(book.getName());
+                if (text.equals("genre: ")) {
+                    for (Book book : allBooks) {
+                        if (book.getGenre().equals(searchField.getText())) {
+                            bookController.addSearchedBook(book.getName());
+                        }
                     }
-                }
             }
-
             navigateToPage(this, new SearchPage(bookController, text));
+        } else if (source.equals(closeButton)) {
+            this.dispose();
+        }
+        for (int i = 0; i < buttons.size(); i++) {
+            if (source.equals(buttons.get(i))){
+                bookController.rentBook(currentSearchedBook.get(i).getName());
+                this.navigateToPage(this, new SearchPage(bookController,text));
+            }
         }
     }
 }

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="edit book option">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/SearchPage.java" afterDir="false" />
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="search book by title, author and genre options">
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
@@ -16,61 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/AuthenticationImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/AuthenticationImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/BookControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/bookModel/BookDBImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationLibrarianPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationLibrarianPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AddBookPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/AdminOptionPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseEditBookPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BaseOptionPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/BookedBooksPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditAuthorPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditBookNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditBookPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditBookTitlePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/EditGenrePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/LibrarianOptionPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/RentBookPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/ReturnBookPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserOptionPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/optionsView/UserPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EditBookNumber.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/EditBookPage.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BookControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/bookModel/BookDBImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationLibrarianPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationLibrarianPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/AddBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/AddBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/AdminOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/adminOptionsPages/AdminOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseEditBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/BaseEditBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/BaseOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/BookedBooksPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/BookedBooksPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditAuthorPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/EditAuthorPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/EditBookNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/EditBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditBookTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/EditBookTitlePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/EditGenrePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/editBookPages/EditGenrePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/LibrarianOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/LibrarianOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/RentBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/RentBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/ReturnBookPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/ReturnBookPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/UserOptionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/adminOptionsPages/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/SearchPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -410,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704703952875</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="search book by title, author and genre options">
+      <option name="closed" value="true" />
+      <created>1706632937620</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1706632937620</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +402,8 @@
     <MESSAGE value="add author and number columns to books table" />
     <MESSAGE value="add edit book title option for librarian and numbers of the books" />
     <MESSAGE value="edit book option" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit book option" />
+    <MESSAGE value="search book by title, author and genre options" />
+    <option name="LAST_COMMIT_MESSAGE" value="search book by title, author and genre options" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
