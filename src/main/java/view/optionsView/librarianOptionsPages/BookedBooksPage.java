@@ -25,6 +25,7 @@ public class BookedBooksPage extends BaseOptionPage implements ActionListener {
     private void setupCloseButton(){
         closeButton.setText("x");
         closeButton.setBounds(7,7,15,15);
+        closeButton.setVisible(true);
         closeButton.setFocusable(true);
         closeButton.addActionListener(this);
         this.add(closeButton);

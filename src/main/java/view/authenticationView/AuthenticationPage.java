@@ -108,12 +108,13 @@ public class AuthenticationPage extends BasePage implements ActionListener {
         this.add(nameLabel);
     }
 
-    public void showMessage(BasePage basePage, String text, Color color, int width) {
+    public void showMessage(JFrame currentPage, BasePage basePage, String text, Color color, int width) {
         JLabel messageLabel = new JLabel(text);
         messageLabel.setForeground(color);
         messageLabel.setBounds(800, 450, width, 40);
         Font biggerFont = new Font(messageLabel.getFont().getName(), Font.PLAIN, 16);
         messageLabel.setFont(biggerFont);
+        currentPage.dispose();
         basePage.add(messageLabel);
     }
     @Override

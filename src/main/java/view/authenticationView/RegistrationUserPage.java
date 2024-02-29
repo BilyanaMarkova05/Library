@@ -24,18 +24,25 @@ public class RegistrationUserPage extends AuthenticationPage {
         Object source = e.getSource();
         if (source.equals(this.getReturnButton())) {
             this.navigateToPage(this, HomePage.getInstance());
-        } else if (source.equals(this.getAuthenticationButton())) {
+
+        }
+
+        if (source.equals(this.getAuthenticationButton())) {
+
             String password = new String(this.getPasswordField().getPassword());
             authentication.register(this.getNameField().getText(), password);
             this.dispose();
-            if(AuthenticationImpl.getLoggedUser() == null
-                    || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){
-                this.showMessage(new RegistrationUserPage(), "This account already exist. Please try again.", Color.RED, 350);
+
+            if(AuthenticationImpl.getLoggedUser() == null ||
+                    AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED){
+                this.showMessage(this, new RegistrationUserPage(), "This account already exist. Please try again.", Color.RED, 350);
+
             }else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
-                this.showMessage(this,"Registration successful", Color.GREEN, 200);
                 BookController bookController = new BookControllerImpl();
                 this.navigateToPage(this, new UserOptionPage(bookController));
             }
+
         }
     }
 }
+

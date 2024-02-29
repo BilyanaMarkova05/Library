@@ -2,7 +2,6 @@ package controller;
 
 import model.userModel.*;
 import org.mindrot.jbcrypt.BCrypt;
-import view.authenticationView.*;
 import view.optionsView.adminOptionsPages.AdminOptionPage;
 
 import java.util.List;
@@ -31,7 +30,6 @@ public class AuthenticationImpl implements Authentication{
         for (User user : userDB.getAllUsers("users")) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
-                new RegistrationUserPage();
                 return;
             }
         }
@@ -45,7 +43,6 @@ public class AuthenticationImpl implements Authentication{
         for (User user : userDB.getAllUsers("librarians")) {
             boolean passwordMatch = BCrypt.checkpw(password, user.getPassword());
             if (name.equals(user.getName()) && passwordMatch){
-                new RegistrationLibrarianPage("Registration", "Sign in");
                 return;
             }
         }
@@ -66,15 +63,9 @@ public class AuthenticationImpl implements Authentication{
 
     @Override
     public void loginAsAdmin(String name, String password) {
-        boolean areAdminDataCorrect = false;
         if(name.equals(admin.getName()) && password.equals(admin.getPassword())){
             loggedUser = admin;
             loggedUser.setUserStatus(UserStatus.LOGGED);
-            areAdminDataCorrect = true;
-        }
-
-        if(!areAdminDataCorrect){
-            new AdminPage();
         }
     }
 

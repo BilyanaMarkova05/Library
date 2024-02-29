@@ -98,6 +98,9 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
            navigateToPage(this, HomePage.getInstance());
        } else if(source.equals(this.getReturnButton())){
            navigateToPage(this, HomePage.getInstance());
-       }
+       } else if (source.equals(deleteProfileButton)) {
+            authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
+            navigateToPage(this, HomePage.getInstance());
+        }
     }
 }

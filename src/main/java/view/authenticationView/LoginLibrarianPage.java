@@ -32,11 +32,9 @@ public class LoginLibrarianPage extends AuthenticationPage{
 
             if (AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
-                this.showMessage(new LoginLibrarianPage(), "Login failed. Please try again", Color.RED, 250);
+                this.showMessage(this, new LoginLibrarianPage(), "Login failed. Please try again", Color.RED, 250);
             } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
-                this.showMessage(this, "Login successful", Color.GREEN, 200);
                 BookController bookController = new BookControllerImpl();
-                //this.navigateToPage(this, new LibrarianOptionPage(bookController));
                 this.navigateToPage(this, new LibrarianOptionPage(bookController));
             }
         }

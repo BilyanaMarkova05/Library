@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="search book by title, author and genre options">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="4218b0ba-e909-41e9-84a2-3180b1c38cb2" name="Changes" comment="rent searched book">
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6/fileHashes/fileHashes.bin" afterDir="false" />
@@ -15,8 +13,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AdminPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AuthenticationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/AuthenticationPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginLibrarianPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/view/authenticationView/RegistrationUserPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AuthenticationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/AuthenticationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/AuthenticationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginLibrarianPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/authenticationView/RegistrationUserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/adminOptionsPages/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/adminOptionsPages/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/BookedBooksPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/librarianOptionsPages/BookedBooksPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/UserOptionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/optionsView/userOptonsPages/UserOptionPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706632937620</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="rent searched book">
+      <option name="closed" value="true" />
+      <created>1708261669787</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1708261669787</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +422,8 @@
     <MESSAGE value="add edit book title option for librarian and numbers of the books" />
     <MESSAGE value="edit book option" />
     <MESSAGE value="search book by title, author and genre options" />
-    <option name="LAST_COMMIT_MESSAGE" value="search book by title, author and genre options" />
+    <MESSAGE value="rent searched book" />
+    <option name="LAST_COMMIT_MESSAGE" value="rent searched book" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

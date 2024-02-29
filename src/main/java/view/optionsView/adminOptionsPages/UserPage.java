@@ -47,7 +47,7 @@ public class UserPage extends BaseOptionPage implements ActionListener {
     }
 
     private void setupGeneralPanel() {
-        this.generalPanel.setBounds(500, 300, 700, 300);
+        this.generalPanel.setBounds(500, 300, 700, 400);
         generalPanel.setBackground(Color.getHSBColor(54, 20, 197));
         JPanel userPanel = setupUsersList(allUsers, userButtons, labels, 0, 0, 0, 0);
         JPanel librarianPanel = setupUsersList(allLibrarians, librarianButtons, librarianLabels, 0, 0, 0, 0);

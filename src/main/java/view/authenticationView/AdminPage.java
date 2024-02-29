@@ -32,16 +32,15 @@ public class AdminPage extends AuthenticationPage {
         if (source.equals(this.getReturnButton())){
             this.navigateToPage(this, HomePage.getInstance());
         }
-        if (source.equals(this.getAuthenticationButton())){
+        if (source.equals(this.getAuthenticationButton())) {
             String password = new String(this.getPasswordField().getPassword());
             authentication.loginAsAdmin(this.getNameField().getText(), password);
             this.dispose();
 
             if (AuthenticationImpl.getLoggedUser() == null
                     || AuthenticationImpl.getLoggedUser().getUserStatus() != UserStatus.LOGGED) {
-                this.showMessage(new AdminPage(), "Login failed. Please try again", Color.RED, 250);
-            }else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED){
-                this.showMessage(this, "Login successful", Color.GREEN, 200);
+                showMessage(this, new AdminPage(), "Login failed. Please try again", Color.RED, 250);
+            } else if (AuthenticationImpl.getLoggedUser().getUserStatus() == UserStatus.LOGGED) {
                 this.navigateToPage(this, new AdminOptionPage(new BookControllerImpl()));
             }
         }
