@@ -99,8 +99,14 @@ public class UserOptionPage extends BaseOptionPage implements ActionListener {
        } else if(source.equals(this.getReturnButton())){
            navigateToPage(this, HomePage.getInstance());
        } else if (source.equals(deleteProfileButton)) {
-            authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
-            navigateToPage(this, HomePage.getInstance());
+            if (bookController.doesUserHaveBooks(AuthenticationImpl.getLoggedUser().getName())){
+                JOptionPane.showMessageDialog(null,"This user have booked books. " +
+                        "You cannot delete this account before the books are returned.");
+            }else {
+                authentication.removeProfile(AuthenticationImpl.getLoggedUser().getName(), "users");
+                this.dispose();
+                navigateToPage(this, HomePage.getInstance());
+            }
         }
     }
 }

@@ -130,7 +130,7 @@ public class AddBookPage extends JFrame implements ActionListener {
             new LibrarianOptionPage(bookController);
         } else if (source.equals(closeButton)) {
             this.dispose();
-            new LibrarianOptionPage(bookController);
+            //new LibrarianOptionPage(bookController);
         }
     }
 }
